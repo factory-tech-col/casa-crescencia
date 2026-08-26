@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply m-0 bg-white text-gray-900 font-sans;
+    min-height: 100vh;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    @apply text-miyuki-600 no-underline transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-miyuki-700;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-miyuki-500;
+    outline-style: solid;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply ring-2 ring-miyuki-500 border-miyuki-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-miyuki-600 text-white px-6 py-3 rounded-lg font-medium
+           hover:bg-miyuki-700 active:bg-miyuki-800
+           transition-colors duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-miyuki-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-miyuki-600 border-2 border-miyuki-600 px-6 py-3 rounded-lg font-medium
+           hover:bg-miyuki-50 active:bg-miyuki-100
+           transition-colors duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-miyuki-500;
+  }
+
+  .btn-ghost {
+    @apply text-gray-700 px-4 py-2 rounded-lg font-medium
+           hover:bg-gray-100 active:bg-gray-200
+           transition-colors duration-200;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden
+           transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+           focus:ring-2 focus:ring-miyuki-500 focus:border-miyuki-500
+           placeholder:text-gray-400 transition-colors duration-200
+           text-gray-900;
+  }
+
+  .label-field {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .error-text {
+    @apply text-sm text-red-600 mt-1;
+  }
+
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
