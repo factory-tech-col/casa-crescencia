@@ -10,7 +10,7 @@ import "./styles/globals.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HelmetProvider>
-      <BrowserRouter basename="/Miyuki">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <AuthProvider>
           <CartProvider>
             <App />
