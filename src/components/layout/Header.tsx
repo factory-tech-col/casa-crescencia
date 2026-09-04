@@ -42,15 +42,12 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 md:h-24 lg:h-28 items-center justify-between">
-          <Link
-            to={ROUTES.home.path}
-            className="flex items-center ml-3"
-          >
+        <div className="flex min-h-[100px] py-3 items-center justify-between">
+          <Link to={ROUTES.home.path} className="flex items-center ml-3">
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Casa Crescencia"
-              className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+              className="h-28 md:h-36 lg:h-44 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -114,17 +111,12 @@ export function Header() {
                       d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                     />
                   </svg>
-                  <span className="max-w-[8rem] truncate">
-                    {profile?.full_name ?? "Mi cuenta"}
-                  </span>
+                  <span className="max-w-[8rem] truncate">{profile?.full_name ?? "Mi cuenta"}</span>
                 </button>
 
                 {userMenuOpen && (
                   <>
-                    <div
-                      className="fixed inset-0 z-40"
-                      onClick={() => setUserMenuOpen(false)}
-                    />
+                    <div className="fixed inset-0 z-40" onClick={() => setUserMenuOpen(false)} />
                     <div className="absolute right-0 z-50 mt-2 w-48 origin-top-right bg-crema border border-stone-100 py-1 shadow-lg">
                       <Link
                         to={ROUTES.profile.path}
@@ -196,11 +188,7 @@ export function Header() {
                   stroke="currentColor"
                   className="h-5 w-5"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
                 <svg
