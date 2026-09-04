@@ -64,7 +64,7 @@ export default function ProductDetail() {
     <>
       <SEO
         title={product.name}
-        description={product.description || `Compra ${product.name} en MIYUKI`}
+        description={product.description || `Compra ${product.name} en Casa Crescencia`}
         image={primaryImage?.url}
         url={`/productos/${product.slug}`}
         type="product"
@@ -85,7 +85,7 @@ export default function ProductDetail() {
               availability: available > 0
                 ? "https://schema.org/InStock"
                 : "https://schema.org/OutOfStock",
-              url: `${window.location.origin}/Miyuki/productos/${product.slug}`,
+              url: `${window.location.origin}${import.meta.env.BASE_URL}productos/${product.slug}`,
             },
           }}
         />
@@ -93,15 +93,15 @@ export default function ProductDetail() {
 
       <div className="container-custom py-8">
         <nav className="text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-miyuki-600">Inicio</Link>
+          <Link to="/" className="hover:text-oro-600">Inicio</Link>
           <span className="mx-2">/</span>
-          <Link to="/productos" className="hover:text-miyuki-600">Productos</Link>
+          <Link to="/productos" className="hover:text-oro-600">Productos</Link>
           {product.category && (
             <>
               <span className="mx-2">/</span>
               <Link
                 to={`/productos?categoria=${product.category.slug}`}
-                className="hover:text-miyuki-600"
+                className="hover:text-oro-600"
               >
                 {product.category.name}
               </Link>
@@ -130,14 +130,14 @@ export default function ProductDetail() {
 
           <div>
             {product.category && (
-              <p className="text-sm text-miyuki-600 uppercase tracking-wide mb-2">
+              <p className="text-sm text-oro-600 uppercase tracking-wide mb-2">
                 {product.category.name}
               </p>
             )}
             <h1 className="text-3xl font-display font-bold text-gray-900 mb-4">
               {product.name}
             </h1>
-            <p className="text-3xl font-semibold text-miyuki-700 mb-6">
+            <p className="text-3xl font-semibold text-oro-700 mb-6">
               {formatPrice(product.price)}
             </p>
 

@@ -1,189 +1,201 @@
-# Payment Integration
+# Pagos — Transferencia Directa Manual (Nequi / Daviplata)
 
-## Architecture
+MIYUKI acepta **pago por transferencia directa** iniciada manualmente por el cliente desde
+**Nequi** o **Daviplata**. No hay pasarela de pagos externa (Wompi, PayU, ePayco, MercadoPago,
+PSE, Bre-B). El cliente realiza la transferencia manualmente, sube un comprobante y el sistema
+lo valida y confirma la orden.
 
-Payments use a provider pattern. The active provider is selected by `VITE_PAYMENT_MODE`:
+## Flujo de compra
 
 ```
-VITE_PAYMENT_MODE=mock       → MockPaymentProvider (development)
-VITE_PAYMENT_MODE=production → Production provider (requires external setup)
+CARRO
+  → /checkout (datos de envío + selección de método)
+  → Crear orden PENDING_PAYMENT (server-side, create-order)
+  → Crear payment PENDING asociado (método = NEQUI | DAVIPLATA)
+  → /checkout/procesando
+  → Abrir Nequi/Daviplata en NUEVA pestaña (la tienda permanece abierta)
+  → Transferencia manual
+  → Volver a la pestaña de Miyuki
+  → Subir comprobante (PNG/JPG/WebP, máx. 8 MB)
+  → Subir archivo real a Storage privado (payment-receipts)
+  → confirm-receipt Edge Function (revalida todo server-side)
+  → confirm_payment RPC (transaccional: payment=COMPLETED, order=PAID, inventario, auditoría)
+  → WhatsApp administradora
+  → /checkout/confirmacion
+  → /pedidos
 ```
 
-All payment providers implement a common interface:
+## Métodos de pago
 
-```typescript
-interface PaymentProvider {
-  initiatePayment(orderId: string, amount: number, method: PaymentMethod): Promise<PaymentResult>;
-  verifyPayment(paymentId: string): Promise<PaymentStatus>;
-  handleWebhook(payload: unknown, signature: string): Promise<WebhookResult>;
+| Método | Código en `payments.method` | SEO/UI |
+|--------|-----------------------------|--------|
+| Nequi | `NEQUI` | "Nequi" |
+| Daviplata | `DAVIPLATA` | "Daviplata" |
+
+Nequi y Daviplata se tratan como **transferencias manuales iniciadas por el cliente**, no como
+una integración API bancaria. No se implementa ni simula una API bancaria inexistente. La
+plataforma oficial simplemente se abre en una nueva pestaña.
+
+## Regla: no confiar en el monto del frontend
+
+El monto oficial SIEMPRE se obtiene de `orders.total` en Supabase. El frontend muestra el total
+solo con fines informativos. Nunca se decide el monto pagado a partir de URL, `localStorage`,
+React state o query params.
+
+## Storage de comprobantes
+
+- Bucket privado: `payment-receipts`
+- Ruta: `payment-receipts/{user_id}/{order_id}/{unique-file-name}`
+- Solo imágenes: PNG, JPG/JPEG, WebP
+- Tamaño máximo: 8 MB
+- **Nunca es público.** El bucket es privado y el acceso se realiza mediante URLs firmadas.
+- RLS: el propietario (dueño de la orden) puede subir/leer sus propios comprobantes; la
+  administradora puede leer todos. El cliente A no puede ver el comprobante del cliente B.
+- El archivo real se sube desde el frontend; la Edge Function `confirm-receipt` vuelve a
+  validar el path (debe pertenecer al usuario y a la orden) antes de confirmar.
+
+### Seguridad
+
+- Nunca se expone la `SUPABASE_SERVICE_ROLE_KEY` al frontend.
+- No se usan secretos en variables `VITE_*`.
+- Las credenciales privadas solo existen en las Edge Functions (Deno.env).
+
+## Creación de orden (Edge Function `create-order`)
+
+El backend (con la RPC `create_order`):
+1. Autentica al usuario.
+2. Valida productos y cantidades.
+3. Consulta precios reales (server-side).
+4. Calcula subtotal, IVA 19% y envío.
+5. Reserva inventario (`reserved += quantity`).
+6. Crea la orden en `PENDING_PAYMENT`.
+7. Crea el payment en `PENDING` con método `NEQUI` o `DAVIPLATA`.
+8. Devuelve `order_id`, `payment_id`, `status`, `total`, `currency`.
+
+Petición del frontend:
+
+```json
+{
+  "items": [{ "product_id": "...", "quantity": 1 }],
+  "address_snapshot": { ... },
+  "payment_method": "NEQUI",
+  "idempotency_key": "..."
 }
 ```
 
-### Payment Flow
+o `"payment_method": "DAVIPLATA"`.
+
+## Confirmación (Edge Function `confirm-receipt`)
+
+La función:
+1. Autentica al usuario.
+2. Valida JSON y `order_id` (UUID).
+3. Consulta la orden y comprueba que pertenece al usuario.
+4. Consulta el payment y comprueba que está pendiente y que el método coincide.
+5. Valida el `storage_path` del comprobante (pertenece al usuario/orden).
+6. Registra el comprobante en el payment (metadata + `receipt_path`).
+7. Ejecuta `confirm_payment` RPC (transaccional).
+8. Registra auditoría (`PAYMENT_RECEIPT_SUBMITTED`).
+9. Responde con datos oficiales.
+
+**Nunca acepta un `total` del navegador como autoridad.** Usa `orders.total`.
+
+## `confirm_payment` RPC (transaccional / atómico)
+
+En una sola operación:
+- `payments.status = COMPLETED`
+- `orders.status = PAID`
+- `inventory.stock -= quantity` y `inventory.reserved -= quantity` (una sola vez)
+- Auditoría `PAYMENT_CONFIRMED`
+
+Nunca ocurre "order PAID sin comprobante" ni "inventario descontado sin order PAID".
+
+### Inventario
+
+- Al crear la orden: `reserved += quantity`. El **stock no se descuenta**.
+- Al confirmar el pago: `stock -= quantity` y `reserved -= quantity`.
+- No se descuenta stock al crear la orden ni dos veces al confirmar.
+
+## Idempotencia
+
+El flujo es idempotente:
+
+- Crear dos órdenes con la misma `idempotency_key` devuelve la orden existente.
+- Si el usuario pulsa "Finalizar compra" dos veces, `confirm-receipt` detecta que la orden ya
+  está `PAID` y responde de forma idempotente sin descontar inventario ni duplicar auditorías
+  críticas.
+- No se crean dos órdenes, dos pagos, ni se fractura la orden.
+
+## Qué NO hace el frontend
+
+- El frontend **nunca** marca una orden como `PAID` directamente.
+- La única confirmación persistente ocurre en Supabase (RPC + Edge Function).
+- El frontend solo recibe la respuesta del backend.
+- El carrito se limpia únicamente después de una confirmación exitosa.
+
+## Historial `/pedidos`
+
+Después de finalizar, `/pedidos` muestra la orden con estado `PAID`, fecha, total, método de
+pago y productos. El detalle (`/pedidos/:id`) permite ver que el pago fue Nequi o Daviplata y
+visualizar el comprobante mediante una URL firmada (no pública).
+
+## WhatsApp de la administradora
+
+Al finalizar la confirmación en Supabase, se genera el enlace con `buildWhatsAppLink()`:
 
 ```
-1. Customer completes checkout
-2. Frontend calls create-order Edge Function
-   → Creates order + order_items via create_order RPC
-   → Reserves stock in inventory
-   → Returns order_id
-3. Frontend calls process-payment Edge Function
-   → Validates order is PENDING_PAYMENT
-   → Processes payment via selected provider
-   → Records payment in payments table
-4. Webhook handler receives provider callback
-   → Validates signature (placeholder)
-   → Stores event in payment_events
-   → Calls confirm_payment RPC
-   → Decrements stock and releases reserved
+Nuevo pedido pagado
+
+Pedido: #XXXXXXXX
+Cliente: <nombre>
+Método: Nequi / Daviplata
+Valor pagado: $XXX.XXX
+Estado: PAGADO
 ```
 
-## MockPaymentProvider
+- Se usa `VITE_WHATSAPP_NUMBER` para el número público de destino.
+- El enlace se abre **después** de la confirmación exitosa, nunca antes.
+- Si `confirm-receipt` falla, no se notifica por WhatsApp.
 
-Used in development and testing. Simulates the full payment lifecycle:
+## Estados de UI
 
-1. Creates a payment record with status `PENDING`.
-2. Immediately transitions to `COMPLETED` (no delay in current implementation).
-3. Calls `confirm_payment` RPC to update order status and decrement stock.
-4. Webhook handler always returns success.
-
-**No real money is involved.** Safe for all development and CI environments.
-
-### Configuration
-
-```env
-VITE_PAYMENT_MODE=mock
+```
+idle | loading_order | opening_wallet | waiting_receipt |
+uploading_receipt | validating_receipt | confirming_payment | success | error
 ```
 
-No additional environment variables needed.
+Mientras se confirma, el botón "Finalizar compra" queda deshabilitado y no hay submits dobles.
 
-## PSE Integration
+## Validación del comprobante (simulada)
 
-PSE (Pago Seguro Electrónico) is Colombia's interbank transfer system.
+> **IMPORTANTE:** La validación de monto del comprobante actualmente es **SIMULADA** (siempre
+> devuelve `VALID` para archivos bien formados). **NO** es una validación bancaria ni OCR real.
+> La autoridad real de confirmación es `orders.total` (sin confiar en el monto del cliente) y la
+> lógica transaccional de `confirm_payment`.
 
-### Requirements
+La función `validateReceiptAmount()` está preparada para sustituirse por OCR real sin rediseñar
+el checkout. Nunca se usa un valor no confiable del cliente para marcar la orden como pagada.
 
-- A registered Colombian company (NIT).
-- A contract with an authorized payment processor (e.g., PayU, ePayco, MercadoPago).
-- The processor provides API credentials and webhook endpoints.
-- A custom domain with SSL certificate (required by payment processors).
+La interfaz indica internamente que la validación es simulada.
 
-### Current Status
+## Configuración (`.env`)
 
-**NOT IMPLEMENTED.** The Edge Function returns `501 Not Implemented`. Requires:
-- A registered payment processor account.
-- Custom domain with SSL.
-- Webhook endpoint accessible from the internet (requires Supabase Edge Function deployment).
+```
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+VITE_WHATSAPP_NUMBER=
+VITE_BASE_URL=
+```
 
-## Nequi Integration
+No se agregan secretos al frontend. `SUPABASE_SERVICE_ROLE_KEY` (sin prefijo `VITE_`) solo
+vive en las Edge Functions.
 
-Nequi is a mobile payment platform widely used in Colombia.
+## URLs de Nequi y Daviplata
 
-### Requirements
+Centralizadas en `src/lib/constants.ts`:
 
-- Nequi Business account.
-- API access (requires application to Nequi developer program).
-- Nequi provides REST API for payment requests and QR codes.
+- Nequi: `https://www.nequi.com.co/`
+- Daviplata: `https://www.daviplata.com/personas/pasar-plata`
 
-### Current Status
-
-**NOT IMPLEMENTED.** The Edge Function returns `501 Not Implemented`. Requires Nequi API access approval.
-
-## Bre-B / Bank Transfer (PSE/Bre-B)
-
-Bre-B (Banco de la República) bank transfer — a manual verification flow.
-
-### How It Works
-
-1. Customer selects "Bank Transfer" at checkout.
-2. Application displays bank account details and a unique reference code.
-3. Customer makes a bank transfer manually.
-4. Admin verifies the transfer via the admin panel and marks the order as paid.
-
-### Current Status
-
-**NOT IMPLEMENTED.** The Edge Function returns `501 Not Implemented`. Requires:
-- Admin UI to upload payment proof and confirm.
-- Order status transition from `PENDING_PAYMENT` → `PAID` via admin action.
-
-## Bank Transfer (BANK_TRANSFER)
-
-Admin-configurable payment info with manual verification.
-
-### How It Works
-
-1. Customer selects "Bank Transfer" at checkout.
-2. Application displays configurable bank account details.
-3. Customer makes a bank transfer manually.
-4. Admin verifies the transfer via the admin panel.
-
-### Current Status
-
-**NOT IMPLEMENTED.** Requires admin UI for bank info configuration and manual verification.
-
-## Payment Configuration Summary
-
-| Method | Mode | Status | Requires |
-|--------|------|--------|----------|
-| Mock | Development | Working | Nothing |
-| PSE | Production | Not implemented | Payment processor, custom domain, SSL |
-| Nequi | Production | Not implemented | Nequi Business API access |
-| Bre-B | Production | Not implemented | Manual admin verification flow |
-| Bank Transfer | Production | Not implemented | Admin UI for bank info config |
-
-## Environment Variables
-
-| Variable | Used By | Required |
-|----------|---------|----------|
-| `VITE_PAYMENT_MODE` | All | No (defaults to `mock`) |
-
-**Important:** `VITE_` variables are embedded in the browser bundle. Do not store sensitive payment credentials (API keys, secrets) in `VITE_` variables. Use Supabase Edge Function environment variables for server-side secrets.
-
-## Testing Payments
-
-### Development (Mock Mode)
-
-1. Set `VITE_PAYMENT_MODE=mock` in `.env`.
-2. Go through checkout flow.
-3. Mock provider will simulate successful payment automatically.
-4. Verify order status transitions: `PENDING_PAYMENT` → `PAYMENT_PROCESSING` → `PAID`.
-
-### Integration Testing
-
-For testing with real payment providers in sandbox:
-
-1. Obtain sandbox credentials from the payment processor.
-2. Set `VITE_PAYMENT_MODE=production` and provider-specific sandbox URLs.
-3. Use test card numbers / test accounts provided by the processor.
-4. Verify webhook delivery and order status updates.
-
-## Idempotency Guarantees
-
-- Orders have an `idempotency_key` field (unique constraint in database).
-- Creating a duplicate order with the same key returns the existing order.
-- Payment webhooks are stored in `payment_events` with `processed` flag to prevent double-processing.
-
-## IMPORTANT: Payment Status Rules
-
-**Never mark an order as `PAID` based on client-side confirmation alone.**
-
-The flow must be:
-
-1. Payment provider confirms via webhook (server-side).
-2. Webhook handler verifies the signature.
-3. `payment_events` table is checked for duplicates.
-4. Order status is updated to `PAID`.
-5. Stock is decremented.
-
-If a payment provider is not available, use mock mode or manual bank transfer verification via the admin panel.
-
-## Production Requirements
-
-Before accepting real payments:
-
-1. **Custom domain** with valid SSL certificate (payment processor requirement).
-2. **Supabase production project** (not free tier — needs reliable Edge Functions).
-3. **Payment processor account** with live (not sandbox) credentials.
-4. **Webhook endpoint** accessible from the internet.
-5. **Business registration** (RUT, Cámara de Comercio) for Colombian payment processors.
-6. **Privacy policy** and **terms of service** (already present in the app).
+Son las públicas de cada plataforma. Se abren en una nueva pestaña con `window.open(..., "noopener,noreferrer")`
+sin abandonar la tienda. No son integraciones API bancarias.

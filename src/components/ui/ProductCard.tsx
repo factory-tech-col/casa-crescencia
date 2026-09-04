@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import type { Product } from "@/types";
 import { useCart } from "@/features/cart/CartProvider";
 import { formatPrice } from "@/utils/format";
@@ -9,24 +10,28 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
+  const [imgError, setImgError] = useState(false);
 
   const primaryImage = product.images?.find((img) => img.is_primary) ?? product.images?.[0];
+  const imageUrl = primaryImage?.url ?? "";
+  const showImage = Boolean(imageUrl) && !imgError;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="group flex flex-col overflow-hidden border border-stone-100 bg-crema transition-all duration-300">
       <Link
         to={`/productos/${product.slug}`}
-        className="relative aspect-square overflow-hidden bg-gray-100"
+        className="relative aspect-square overflow-hidden bg-stone-50"
       >
-        {primaryImage ? (
+        {showImage ? (
           <img
-            src={primaryImage.url}
-            alt={primaryImage.alt_text ?? product.name}
+            src={imageUrl}
+            alt={product.name}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={() => setImgError(true)}
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-gray-400">
+          <div className="flex h-full w-full items-center justify-center text-stone-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -43,32 +48,29 @@ export function ProductCard({ product }: ProductCardProps) {
             </svg>
           </div>
         )}
+      </Link>
 
-        {product.category && (
-          <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2.5 py-0.5 text-xs font-medium text-miyuki-700 backdrop-blur-sm">
+      <div className="flex flex-1 flex-col gap-2 p-4">
+        <Link to={`/productos/${product.slug}`} className="flex-1">
+          <h3 className="text-sm font-medium text-gray-800 leading-snug line-clamp-2 transition-colors group-hover:text-gray-900">
+            {product.name}
+          </h3>
+{product.category?.name && (
+          <span className="absolute left-3 top-3 bg-white/95 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-gray-600 backdrop-blur-sm">
             {product.category.name}
           </span>
         )}
       </Link>
 
-      <div className="flex flex-1 flex-col gap-3 p-4">
-        <Link to={`/productos/${product.slug}`} className="flex-1">
-          <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 hover:text-miyuki-600 transition-colors">
-            {product.name}
-          </h3>
-        </Link>
-
-        <div className="flex items-end justify-between gap-2">
-          <p className="text-lg font-bold text-miyuki-600">
-            {formatPrice(product.price)}
-          </p>
+        <div className="flex items-end justify-between gap-2 mt-auto pt-1">
+          <p className="text-base font-medium text-gray-900">{formatPrice(product.price)}</p>
 
           <button
             type="button"
             onClick={() => addItem(product)}
-            className="shrink-0 rounded-md bg-miyuki-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-miyuki-700 active:bg-miyuki-800 transition-colors"
+            className="shrink-0 border border-gray-900 bg-gray-900 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.1em] text-white transition-colors hover:bg-gray-800 active:bg-black"
           >
-            Agregar al carrito
+            Agregar
           </button>
         </div>
       </div>

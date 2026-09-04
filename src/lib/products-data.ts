@@ -2,91 +2,111 @@ import type { Product, Category } from "@/types";
 
 export const DEFAULT_CATEGORIES: Category[] = [
   {
-    id: "cat-accesorios",
-    name: "Accesorios",
-    slug: "accesorios",
-    description: "Accesorios complementarios para tu estilo",
+    id: "cat-aretes",
+    name: "Aretes",
+    slug: "aretes",
+    description: "Aretes artesanales",
     is_active: true,
     sort_order: 1,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
   {
-    id: "cat-bolsos",
-    name: "Bolsos",
-    slug: "bolsos",
-    description: "Bolsos y carteras seleccionados",
+    id: "cat-pulseras",
+    name: "Pulseras",
+    slug: "pulseras",
+    description: "Pulseras artesanales",
     is_active: true,
     sort_order: 2,
     created_at: "2024-01-01T00:00:00Z",
     updated_at: "2024-01-01T00:00:00Z",
   },
-  {
-    id: "cat-calzado",
-    name: "Calzado",
-    slug: "calzado",
-    description: "Zapatos y calzado para toda ocasión",
-    is_active: true,
-    sort_order: 3,
-    created_at: "2024-01-01T00:00:00Z",
-    updated_at: "2024-01-01T00:00:00Z",
-  },
-  {
-    id: "cat-prendas",
-    name: "Prendas de Vestir",
-    slug: "prendas-de-vestir",
-    description: "Ropa selectionada para cada momento",
-    is_active: true,
-    sort_order: 4,
-    created_at: "2024-01-01T00:00:00Z",
-    updated_at: "2024-01-01T00:00:00Z",
-  },
-  {
-    id: "cat-joyeria",
-    name: "Joyería",
-    slug: "joyeria",
-    description: "Joyas y piezas exclusivas",
-    is_active: true,
-    sort_order: 5,
-    created_at: "2024-01-01T00:00:00Z",
-    updated_at: "2024-01-01T00:00:00Z",
-  },
-  {
-    id: "cat-hogar",
-    name: "Hogar",
-    slug: "hogar",
-    description: "Artículos para decorar tu espacio",
-    is_active: true,
-    sort_order: 6,
-    created_at: "2024-01-01T00:00:00Z",
-    updated_at: "2024-01-01T00:00:00Z",
-  },
 ];
 
-function createProduct(
-  id: number,
-  name: string,
-  slug: string,
-  description: string,
-  categoryName: string,
-  stock: number = 20,
-): Product {
-  const cat = DEFAULT_CATEGORIES.find((c) => c.name === categoryName) || DEFAULT_CATEGORIES[0];
+export const ARETES_PRICE = 35000;
+export const PULSERAS_PRICE = 70000;
+export const PINAS_PRICE = 50000;
+
+export interface CatalogEntry {
+  slot: number;
+  name: string;
+  category: "Aretes" | "Pulseras";
+}
+
+// Real catalog mapping: slot (image number) -> product name.
+// Aretes: 1-17 @ $35.000 | Pulseras: 18-30 @ $70.000
+export const CATALOG: { aretes: string[]; pulseras: string[] } = {
+  aretes: [
+    "Terra",
+    "Pollitos",
+    "Conejos",
+    "Monitos",
+    "Sullivan",
+    "Vaquitas",
+    "Trebol de 4 hojas",
+    "El Principito",
+    "Fridas",
+    "Piñas",
+    "Mariposas",
+    "Mafaldas",
+    "Gatos",
+    "Pensamientos",
+    "Pokemón Espeon",
+    "Pokemón Charmander",
+    "Colombia",
+  ],
+  pulseras: [
+    "Ángel",
+    "Harry Potter",
+    "Alpaca",
+    "Acordeón",
+    "Vírgen",
+    "HelloKitty",
+    "Sagrado Corazón",
+    "Tobby",
+    "Basketball",
+    "Camiseta Selección Colombia",
+    "San José",
+    "Nombre de tu Hijo-a",
+    "Vírgen de Guadalupe",
+  ],
+};
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
+function createProduct(entry: CatalogEntry): Product {
+  const { slot, name, category } = entry;
+  const price =
+    name === "Piñas"
+      ? PINAS_PRICE
+      : category === "Aretes"
+        ? ARETES_PRICE
+        : PULSERAS_PRICE;
+  const cat = DEFAULT_CATEGORIES.find((c) => c.name === category) || DEFAULT_CATEGORIES[0];
   return {
-    id: `prod-${String(id).padStart(3, "0")}`,
+    id: `prod-${String(slot).padStart(3, "0")}`,
     name,
-    slug,
-    description,
-    price: 35000,
+    slug: slugify(name),
+    description: `${category} artesanal. ${name}`,
+    price,
     currency: "COP",
     is_active: true,
     category_id: cat.id,
+    order_index: slot,
     category: cat,
     images: [
       {
-        id: `img-${String(id).padStart(3, "0")}`,
-        product_id: `prod-${String(id).padStart(3, "0")}`,
-        url: `/Miyuki/productos/${id}.png`,
+        id: `img-${String(slot).padStart(3, "0")}`,
+        product_id: `prod-${String(slot).padStart(3, "0")}`,
+        url: `${import.meta.env.BASE_URL}productos/${slot}.png`,
         alt_text: name,
         sort_order: 0,
         is_primary: true,
@@ -94,9 +114,9 @@ function createProduct(
       },
     ],
     inventory: {
-      id: `inv-${String(id).padStart(3, "0")}`,
-      product_id: `prod-${String(id).padStart(3, "0")}`,
-      stock,
+      id: `inv-${String(slot).padStart(3, "0")}`,
+      product_id: `prod-${String(slot).padStart(3, "0")}`,
+      stock: 20,
       reserved: 0,
       updated_at: "2024-01-01T00:00:00Z",
     },
@@ -105,43 +125,14 @@ function createProduct(
   };
 }
 
-export const DEFAULT_PRODUCTS: Product[] = [
-  createProduct(1, "Collar Elegante", "collar-elegante", "Collar con diseño exclusivo y acabado premium", "Joyería"),
-  createProduct(2, "Bolso Clásico", "bolso-clasico", "Bolso de cuero sintético con acabados elegantes", "Bolsos"),
-  createProduct(3, "Aretes Dorados", "aretes-dorados", "Aretes bañados en oro con cristales", "Joyería"),
-  createProduct(5, "Pulsera Marina", "pulsera-marina", "Pulsera tejida a mano con detalles marinos", "Accesorios"),
-  createProduct(6, "Sandalias Verano", "sandalias-verano", "Sandalias cómodas para el verano", "Calzado"),
-  createProduct(7, "Vestido Floral", "vestido-floral", "Vestido con estampado floral primaveral", "Prendas de Vestir"),
-  createProduct(8, "Cartera minimalista", "cartera-minimalista", "Cartera delgada con organizador interior", "Bolsos"),
-  createProduct(9, "Gafas de Sol", "gafas-de-sol", "Gafas protectores con filtro UV", "Accesorios"),
-  createProduct(10, "Chaqueta Denim", "chaqueta-denim", "Chaqueta clásica de mezclilla", "Prendas de Vestir"),
-  createProduct(12, "Botas Urbanas", "botas-urbanas", "Botas de cuero para uso urbano", "Calzado"),
-  createProduct(13, "Sombrero Bohemio", "sombrero-bohemio", "Sombrero de paja con cinta decorativa", "Accesorios"),
-  createProduct(15, "Bolso Bandolera", "bolso-bandolera", "Bolso bandolera compacto y versátil", "Bolsos"),
-  createProduct(16, "Conjunto Casual", "conjunto-casual", "Conjunto de dos piezas casual y cómodo", "Prendas de Vestir"),
-  createProduct(17, "Tenis Deportivos", "tenis-deportivos", "Tenis deportivos con suela amortiguada", "Calzado"),
-  createProduct(18, "Anillo Romántico", "anillo-romantico", "Anillo delicado con diseño romántico", "Joyería"),
-  createProduct(19, "Cadena Dorada", "cadena-dorada", "Cadena bañada en oro 18k", "Joyería"),
-  createProduct(20, "Mochila Urbana", "mochila-urbana", "Mochila resistente al agua con compartimentos", "Bolsos"),
-  createProduct(21, "Blusa Elegante", "blusa-elegante", "Blusa de tela ligera con diseño elegante", "Prendas de Vestir"),
-  createProduct(22, "Tacón Clásico", "talon-clasico", "Zapatos de tacón para ocasiones especiales", "Calzado"),
-  createProduct(23, "Bufanda Primavera", "bufanda-primavera", "Bufanda ligera de colores vibrantes", "Accesorios"),
-  createProduct(24, "Cartera Cuero", "cartera-cuero", "Cartera premium de cuero genuino", "Bolsos"),
-  createProduct(25, "Falda Midi", "falda-midi", "Falda midi con caída elegante", "Prendas de Vestir"),
-  createProduct(27, "Arete Perla", "arete-perla", "Aretes con perlas cultivadas", "Joyería"),
-  createProduct(28, "Neceser Viaje", "neceser-viaje", "Neceser organizador para viajes", "Accesorios"),
-  createProduct(29, "Chaqueta Seda", "chaqueta-seda", "Chaqueta ligera de seda sintética", "Prendas de Vestir"),
-  createProduct(30, "Mocasín Clásico", "mocasin-clasico", "Mocasín de cuero para look casual-elegante", "Calzado"),
-  createProduct(31, "Llavero Premium", "llavero-premium", "Llavero con diseño personalizado", "Accesorios"),
-  createProduct(32, "Bolso shopper", "bolso-shopper", "Bolso tipo shopper amplio y funcional", "Bolsos"),
-  createProduct(33, "Pantalón Cargo", "pantalon-cargo", "Pantalón cargo con múltiples bolsillos", "Prendas de Vestir"),
-  createProduct(34, "Tobillera Dorada", "tobillera-dorada", "Tobillera delicada bañada en oro", "Joyería"),
-  createProduct(35, "Visera Deportiva", "visera-deportiva", "Visera ajustable para deporte", "Accesorios"),
-  createProduct(36, "Cinto Premium", "cinto-premium", "Cinto de cuero con hebilla metálica", "Accesorios"),
-  createProduct(37, "Vestido Noche", "vestido-noche", "Vestido elegante para eventos nocturnos", "Prendas de Vestir"),
-  createProduct(38, "Ojotas Verano", "ojotas-verano", "Ojotas cómodas para temporada de verano", "Calzado"),
-  createProduct(39, "Broche Floral", "broche-floral", "Broche con diseño floral artesanal", "Accesorios"),
-  createProduct(40, "Bolso Mini", "bolso-mini", "Bolso miniatura para esenciales", "Bolsos"),
-  createProduct(41, "Enterizo Floral", "enterizo-floral", "Enterizo con estampado floral vibrante", "Prendas de Vestir"),
-  createProduct(42, "Collar Perlas", "collar-perlas", "Collar de perlas cultivadas premium", "Joyería"),
+// Exactly 30 products: Aretes 1-17 (slots 1-17), Pulseras 1-13 (slots 18-30)
+const DEFAULT_PRODUCTS: Product[] = [
+  ...CATALOG.aretes.map((name, idx) =>
+    createProduct({ slot: idx + 1, name, category: "Aretes" }),
+  ),
+  ...CATALOG.pulseras.map((name, idx) =>
+    createProduct({ slot: 17 + (idx + 1), name, category: "Pulseras" }),
+  ),
 ];
+
+export { DEFAULT_PRODUCTS };

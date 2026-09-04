@@ -6,7 +6,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs", "playwright.config.ts"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "playwright.config.ts", "supabase/functions"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
   rules: {

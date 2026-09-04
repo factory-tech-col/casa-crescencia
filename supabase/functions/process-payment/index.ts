@@ -1,3 +1,4 @@
+// @ts-nocheck -- Supabase Edge Function runs in Deno; types are resolved at deploy time.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders: Record<string, string> = {
@@ -7,7 +8,7 @@ const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const VALID_PAYMENT_METHODS = ["MOCK", "PSE", "NEQUI", "BRE_B", "BANK_TRANSFER"] as const;
+const VALID_PAYMENT_METHODS = ["MOCK", "PSE", "NEQUI", "BRE_B", "BANK_TRANSFER", "CREDIT_CARD", "PAYMENT_BUTTON"] as const;
 type PaymentMethod = (typeof VALID_PAYMENT_METHODS)[number];
 
 interface PaymentBody {
@@ -147,7 +148,30 @@ Deno.serve(async (req: Request): Promise<Response> => {
       });
     }
 
-    // --- Mock payment ---
+    // --- Fetch existing PENDING payment record (created by create_order) ---
+    const { data: existingPayment, error: fetchPaymentError } = await supabase
+      .from("payments")
+      .select("id, status, method, reference")
+      .eq("order_id", body.order_id)
+      .eq("status", "PENDING")
+      .order("created_at", { ascending: true })
+      .limit(1)
+      .maybeSingle();
+
+    if (fetchPaymentError) {
+      console.error("process-payment: error fetching pending payment", fetchPaymentError);
+      return jsonResponse(500, { error: "Failed to fetch payment record" });
+    }
+
+    if (!existingPayment) {
+      return jsonResponse(400, {
+        error: "No pending payment found for this order. It may have already been processed.",
+      });
+    }
+
+    const pendingPayment = existingPayment as PaymentRow;
+
+    // --- Determine if this is a mock payment ---
     const isMock =
       paymentMode === "mock" || body.payment_method === "MOCK";
 
@@ -158,27 +182,25 @@ Deno.serve(async (req: Request): Promise<Response> => {
       });
     }
 
-    // Generate mock payment
+    // Generate mock provider reference
     const providerReference = `mock_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
 
-    const { data: payment, error: insertError } = await supabase
+    // --- Update existing payment to COMPLETED (no duplicate INSERT) ---
+    const { data: payment, error: updateError } = await supabase
       .from("payments")
-      .insert({
-        order_id: body.order_id,
-        method: body.payment_method,
+      .update({
         status: "COMPLETED",
-        amount: orderRow.total,
-        currency: "COP",
         reference: providerReference,
         provider_reference: providerReference,
         metadata: { mode: "mock", amount: orderRow.total },
       })
+      .eq("id", pendingPayment.id)
       .select("id, status, method, reference")
       .single();
 
-    if (insertError) {
-      console.error("process-payment: insert error", insertError);
-      return jsonResponse(500, { error: "Failed to record payment" });
+    if (updateError) {
+      console.error("process-payment: update error", updateError);
+      return jsonResponse(500, { error: "Failed to update payment record" });
     }
 
     // --- Confirm order via RPC ---

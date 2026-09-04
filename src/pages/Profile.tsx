@@ -88,7 +88,7 @@ function ProfileContent() {
 export default function Profile() {
   return (
     <ProtectedRoute>
-      <SEO title="Mi Perfil" description="Gestiona tu perfil en MIYUKI" />
+      <SEO title="Mi Perfil" description="Gestiona tu perfil en Casa Crescencia" />
       <ProfileContent />
     </ProtectedRoute>
   );

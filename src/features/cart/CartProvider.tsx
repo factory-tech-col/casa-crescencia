@@ -19,7 +19,7 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useLocalStorage<CartItem[]>("miyuki-cart", []);
+  const [items, setItems] = useLocalStorage<CartItem[]>("oro-cart", []);
 
   const addItem = useCallback(
     (product: Product, quantity: number = 1) => {
@@ -74,7 +74,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
   }, [getSubtotal]);
 
-  const getTotal = useCallback(() => getSubtotal() + getShippingCost(), [getSubtotal, getShippingCost]);
+  const getTotal = useCallback(
+    () => getSubtotal() + getShippingCost(),
+    [getSubtotal, getShippingCost],
+  );
 
   const getItemCount = useCallback(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
 

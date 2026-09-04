@@ -13,7 +13,7 @@ export function Loading({ size = "md", text }: LoadingProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 py-12">
       <div
-        className={`animate-spin rounded-full border-4 border-gray-200 border-t-miyuki-600 ${sizeClasses[size]}`}
+        className={`animate-spin rounded-full border-4 border-gray-200 border-t-oro-600 ${sizeClasses[size]}`}
         role="status"
         aria-label="Cargando"
       />

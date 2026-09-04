@@ -1,3 +1,4 @@
+// @ts-nocheck -- Supabase Edge Function runs in Deno; types are resolved at deploy time.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders: Record<string, string> = {
@@ -27,6 +28,8 @@ interface CreateOrderBody {
   items: OrderItem[];
   address_snapshot: AddressSnapshot;
   idempotency_key?: string;
+  payment_method?: string;
+  pse?: Record<string, unknown> | null;
 }
 
 const UUID_RE =
@@ -150,6 +153,8 @@ Deno.serve(async (req: Request): Promise<Response> => {
         p_items: body.items,
         p_address_snapshot: body.address_snapshot,
         p_idempotency_key: body.idempotency_key ?? null,
+        p_payment_method: body.payment_method ?? "MOCK",
+        p_pse: body.pse ?? null,
       },
     );
 
@@ -158,7 +163,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return jsonResponse(400, { error: orderError.message });
     }
 
-    return jsonResponse(201, { order });
+    return jsonResponse(201, { ...order });
   } catch (err) {
     console.error("create-order: unexpected error", err);
     return jsonResponse(500, { error: "Internal server error" });

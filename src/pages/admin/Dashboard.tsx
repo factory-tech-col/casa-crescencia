@@ -121,7 +121,7 @@ export function Dashboard() {
           Hola, {profile?.full_name ?? "Admin"}
         </h1>
         <p className="mt-1 text-sm text-gray-500">
-          Bienvenido al panel de administración de MIYUKI
+          Bienvenido al panel de administración de Casa Crescencia
         </p>
       </div>
 
@@ -161,10 +161,10 @@ export function Dashboard() {
           <div className="space-y-3">
             <NavLink
               to="/admin/productos"
-              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-miyuki-300 hover:bg-miyuki-50/50 transition-colors group"
+              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-oro-300 hover:bg-oro-50/50 transition-colors group"
             >
-              <div className="p-2 rounded-lg bg-miyuki-50 group-hover:bg-miyuki-100 transition-colors">
-                <svg className="w-5 h-5 text-miyuki-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <div className="p-2 rounded-lg bg-oro-50 group-hover:bg-oro-100 transition-colors">
+                <svg className="w-5 h-5 text-oro-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
               </div>
@@ -175,7 +175,7 @@ export function Dashboard() {
             </NavLink>
             <NavLink
               to="/admin/pedidos"
-              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-miyuki-300 hover:bg-miyuki-50/50 transition-colors group"
+              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-oro-300 hover:bg-oro-50/50 transition-colors group"
             >
               <div className="p-2 rounded-lg bg-amber-50 group-hover:bg-amber-100 transition-colors">
                 <svg className="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">

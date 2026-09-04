@@ -14,7 +14,7 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <>
-        <SEO title="Carrito" description="Tu carrito de compras en MIYUKI" />
+        <SEO title="Carrito" description="Tu carrito de compras en Casa Crescencia" />
         <div className="container-custom py-20 text-center">
           <svg className="w-20 h-20 text-gray-300 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
@@ -35,7 +35,7 @@ export default function Cart() {
 
   return (
     <>
-      <SEO title="Carrito" description="Tu carrito de compras en MIYUKI" />
+      <SEO title="Carrito" description="Tu carrito de compras en Casa Crescencia" />
       <div className="container-custom py-8">
         <h1 className="text-3xl font-display font-bold text-gray-900 mb-8">Carrito</h1>
 
@@ -67,11 +67,11 @@ export default function Cart() {
                   <div className="flex-1 min-w-0">
                     <Link
                       to={`/productos/${item.product.slug}`}
-                      className="font-medium text-gray-900 hover:text-miyuki-600 line-clamp-1"
+                      className="font-medium text-gray-900 hover:text-oro-600 line-clamp-1"
                     >
                       {item.product.name}
                     </Link>
-                    <p className="text-miyuki-700 font-semibold mt-1">
+                    <p className="text-oro-700 font-semibold mt-1">
                       {formatPrice(item.product.price)}
                     </p>
 
@@ -135,11 +135,11 @@ export default function Cart() {
                 <hr className="border-gray-200" />
                 <div className="flex justify-between text-base font-semibold">
                   <span>Total</span>
-                  <span className="text-miyuki-700">{formatPrice(total)}</span>
+                  <span className="text-oro-700">{formatPrice(total)}</span>
                 </div>
               </div>
               <Link to="/checkout" className="btn-primary w-full mt-6 block text-center">
-                Continuar al checkout
+                PAGAR
               </Link>
               <Link
                 to="/productos"

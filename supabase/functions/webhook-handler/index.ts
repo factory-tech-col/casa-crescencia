@@ -1,3 +1,4 @@
+// @ts-nocheck -- Supabase Edge Function runs in Deno; types are resolved at deploy time.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders: Record<string, string> = {

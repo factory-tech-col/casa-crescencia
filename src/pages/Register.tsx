@@ -36,7 +36,7 @@ export default function Register() {
 
   return (
     <>
-      <SEO title="Crear Cuenta" description="Crea tu cuenta en MIYUKI" />
+      <SEO title="Crear Cuenta" description="Crea tu cuenta en Casa Crescencia" />
       <div className="min-h-[70vh] flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
           <h1 className="text-3xl font-display font-bold text-gray-900 text-center mb-8">
@@ -123,7 +123,7 @@ export default function Register() {
           {!success && (
             <p className="text-center mt-6 text-sm text-gray-600">
               ¿Ya tienes cuenta?{" "}
-              <Link to="/iniciar-sesion" className="text-miyuki-600 hover:text-miyuki-700 font-medium">
+              <Link to="/iniciar-sesion" className="text-oro-600 hover:text-oro-700 font-medium">
                 Iniciar sesión
               </Link>
             </p>

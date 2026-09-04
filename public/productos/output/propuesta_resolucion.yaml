@@ -1,0 +1,27 @@
+schema_version: '1.0'
+estado: PROPUESTA
+resolucion:
+  nombre_archivo: disposicion_055.pdf
+  tipo: RESOLUCION
+  numero: 055 de 2025
+  titulo: se establece el reconocimiento documental ISEM26
+  version: '1.0'
+  paginas: 2
+  fuente_norma: deteccion_deterministica
+articulos:
+- numero: PRIMERO
+  orden: 1
+  texto: Otorgar el reconocimiento a los oficiales que acrediten servicios destacados
+    de forma documental.
+- numero: SEGUNDO
+  orden: 2
+  texto: Cada aspirante debe aportar certificado de antecedentes disciplinarios expedido
+    dentro de los ultimos 30 dias.
+- numero: TERCERO
+  orden: 3
+  texto: La vigencia del presente reconocimiento sera revisada anualmente por la autoridad
+    competente.
+- numero: CUARTO
+  orden: 4
+  texto: La presente disposicion rige desde su expedicion.
+pendientes_de_parametrizacion: []

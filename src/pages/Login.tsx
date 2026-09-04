@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
     <>
-      <SEO title="Iniciar Sesión" description="Inicia sesión en tu cuenta de MIYUKI" />
+      <SEO title="Iniciar Sesión" description="Inicia sesión en tu cuenta de Casa Crescencia" />
       <div className="min-h-[70vh] flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
           <h1 className="text-3xl font-display font-bold text-gray-900 text-center mb-8">
@@ -82,12 +82,12 @@ export default function Login() {
 
           <p className="text-center mt-6 text-sm text-gray-600">
             ¿No tienes cuenta?{" "}
-            <Link to="/crear-cuenta" className="text-miyuki-600 hover:text-miyuki-700 font-medium">
+            <Link to="/crear-cuenta" className="text-oro-600 hover:text-oro-700 font-medium">
               Crear cuenta
             </Link>
           </p>
           <p className="text-center mt-2 text-sm text-gray-600">
-            <Link to="/olvide-contrasena" className="text-miyuki-600 hover:text-miyuki-700 font-medium">
+            <Link to="/olvide-contrasena" className="text-oro-600 hover:text-oro-700 font-medium">
               ¿Olvidaste tu contraseña?
             </Link>
           </p>

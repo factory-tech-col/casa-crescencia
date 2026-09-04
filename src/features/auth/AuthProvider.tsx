@@ -21,6 +21,9 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const AUTH_NOT_CONFIGURED_MSG =
+  "Supabase no está configurado. Crea un archivo .env con VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY (consulta .env.example).";
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -66,13 +69,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [fetchProfile]);
 
   const signIn = useCallback(async (email: string, password: string) => {
-    if (!isSupabaseConfigured()) return { error: "Supabase no está configurado" };
+    if (!isSupabaseConfigured()) return { error: AUTH_NOT_CONFIGURED_MSG };
     const { error } = await supabase!.auth.signInWithPassword({ email, password });
     return { error: error?.message || null };
   }, []);
 
   const signUp = useCallback(async (email: string, password: string, fullName: string) => {
-    if (!isSupabaseConfigured()) return { error: "Supabase no está configurado" };
+    if (!isSupabaseConfigured()) return { error: AUTH_NOT_CONFIGURED_MSG };
     const { error } = await supabase!.auth.signUp({
       email,
       password,
@@ -90,7 +93,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const resetPassword = useCallback(async (email: string) => {
-    if (!isSupabaseConfigured()) return { error: "Supabase no está configurado" };
+    if (!isSupabaseConfigured()) return { error: AUTH_NOT_CONFIGURED_MSG };
     const { error } = await supabase!.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/Miyuki/iniciar-sesion`,
     });
@@ -98,7 +101,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updatePassword = useCallback(async (newPassword: string) => {
-    if (!isSupabaseConfigured()) return { error: "Supabase no está configurado" };
+    if (!isSupabaseConfigured()) return { error: AUTH_NOT_CONFIGURED_MSG };
     const { error } = await supabase!.auth.updateUser({ password: newPassword });
     return { error: error?.message || null };
   }, []);

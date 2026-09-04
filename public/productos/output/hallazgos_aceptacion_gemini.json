@@ -1,0 +1,3092 @@
+{
+ "auditoria": {
+  "objeto": "output/aceptacion.xlsx",
+  "fuente": "input/pdf/1_SOPORTE 1 ISEM26.pdf",
+  "paginas_pdf": 299,
+  "evidencias_excel": 114,
+  "fecha_reporte": "2026-08-28"
+ },
+ "resumen": {
+  "evidencias_auditadas": 114,
+  "correctas": 93,
+  "parciales": 17,
+  "incorrectas": 4,
+  "mal_asignadas": 0,
+  "hallazgos_severidad": {
+   "ALTO": 3,
+   "MEDIO": 21,
+   "CRITICO": 3
+  },
+  "hallazgos_tipo": {
+   "DUDA_REQUIERE_REVISION": 4,
+   "ERROR_REAL_DEL_SISTEMA": 20,
+   "FALSO_POSITIVO": 3
+  },
+  "cambia_decision_si": 3,
+  "cambia_decision_no": 24,
+  "personas_afectadas": [
+   "ARIAS ROJAS EDUARDO ALBERTO",
+   "BURGOS SANDRO RAFAEL",
+   "CABRERA MARTINEZ NORMAN IVAN",
+   "CORREA VARGAS PAULO IVAN",
+   "GARCIA RENGIFO JHON JAIRO",
+   "GARCIA SAAVEDRA ALEXANDER",
+   "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "LEAL GARCIA JESUS ARLEY",
+   "LOPEZ ESCOBAR CAMPO ELIAS",
+   "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "MONTES MORA ALEXANDER",
+   "NUÑEZ CAPACHO ALEX FERNEY",
+   "ORTIZ PARRA OSCAR ANDRES",
+   "PORRAS PLATA LUIS ALEXANDER",
+   "VILLAMIZAR PEREZ CONSTANZA"
+  ],
+  "paginas_sin_documento_registrado": {
+   "CONSTANCIA": [
+    168
+   ]
+  }
+ },
+ "veredicto_final": "NO APROBADO",
+ "tablas": {
+  "personas": [
+   {
+    "persona": "GARCIA RENGIFO JHON JAIRO",
+    "cedula": "18008020",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     32
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": false,
+    "paginas_pdf": [
+     70,
+     71
+    ]
+   },
+   {
+    "persona": "VILLAMIZAR PEREZ CONSTANZA",
+    "cedula": "52412525",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     89
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     206
+    ]
+   },
+   {
+    "persona": "CAÑON PINILLA JIDSELIN",
+    "cedula": "72192689",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     23
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     56
+    ]
+   },
+   {
+    "persona": "CABRERA MARTINEZ NORMAN IVAN",
+    "cedula": "73161297",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [],
+    "sustentacion_valida": false,
+    "identidad_confirmada": false,
+    "paginas_pdf": null
+   },
+   {
+    "persona": "LEAL GARCIA JESUS ARLEY",
+    "cedula": "73183461",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     44,
+     45
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     110,
+     111
+    ]
+   },
+   {
+    "persona": "SUAREZ CALDERON JESUS LEONARDO",
+    "cedula": "73573626",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     19
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     44
+    ]
+   },
+   {
+    "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+    "cedula": "79553571",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     17
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     28,
+     29
+    ]
+   },
+   {
+    "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+    "cedula": "79608355",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     10
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     14
+    ]
+   },
+   {
+    "persona": "GARCIA SAAVEDRA ALEXANDER",
+    "cedula": "79645834",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     33
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     89
+    ]
+   },
+   {
+    "persona": "ORTIZ PARRA OSCAR ANDRES",
+    "cedula": "79794765",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     72,
+     73
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     163,
+     164
+    ]
+   },
+   {
+    "persona": "TEJADA CACERES JOSE JULIAN",
+    "cedula": "79938063",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     83
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     194
+    ]
+   },
+   {
+    "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+    "cedula": "80028026",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     97
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     220,
+     221
+    ]
+   },
+   {
+    "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+    "cedula": "80055699",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     43,
+     39
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     99,
+     103
+    ]
+   },
+   {
+    "persona": "CORREA VARGAS PAULO IVAN",
+    "cedula": "80180164",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     112
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": false,
+    "paginas_pdf": [
+     286,
+     287
+    ]
+   },
+   {
+    "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+    "cedula": "80240511",
+    "estado_r001": "EVIDENCIA_INSUFICIENTE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [],
+    "sustentacion_valida": false,
+    "identidad_confirmada": false,
+    "paginas_pdf": null
+   },
+   {
+    "persona": "BURGOS SANDRO RAFAEL",
+    "cedula": "88160526",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     102
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": false,
+    "paginas_pdf": [
+     246,
+     247
+    ]
+   },
+   {
+    "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+    "cedula": "91487547",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     69,
+     65
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     153,
+     157
+    ]
+   },
+   {
+    "persona": "PORRAS PLATA LUIS ALEXANDER",
+    "cedula": "91493470",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     114
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": false,
+    "paginas_pdf": [
+     177
+    ]
+   },
+   {
+    "persona": "MONTES MORA ALEXANDER",
+    "cedula": "93130276",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     63
+    ],
+    "sustentacion_valida": false,
+    "identidad_confirmada": false,
+    "paginas_pdf": [
+     144
+    ]
+   },
+   {
+    "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+    "cedula": "93394896",
+    "estado_r001": "CUMPLE",
+    "estado_r002": "EVIDENCIA_INSUFICIENTE",
+    "tiene_gemini/CEDULAS": [
+     53,
+     58
+    ],
+    "sustentacion_valida": true,
+    "identidad_confirmada": true,
+    "paginas_pdf": [
+     124,
+     130
+    ]
+   }
+  ],
+  "r002": [
+   {
+    "persona": "GARCIA RENGIFO JHON JAIRO",
+    "cedula": "18008020",
+    "evidencia_id": 29,
+    "pagina": 73,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "VILLAMIZAR PEREZ CONSTANZA",
+    "cedula": "52412525",
+    "evidencia_id": 91,
+    "pagina": 209,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "CAÑON PINILLA JIDSELIN",
+    "cedula": "72192689",
+    "evidencia_id": 25,
+    "pagina": 59,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "CABRERA MARTINEZ NORMAN IVAN",
+    "cedula": "73161297",
+    "evidencia_id": 2,
+    "pagina": 6,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "LEAL GARCIA JESUS ARLEY",
+    "cedula": "73183461",
+    "evidencia_id": 47,
+    "pagina": 113,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "SUAREZ CALDERON JESUS LEONARDO",
+    "cedula": "73573626",
+    "evidencia_id": 21,
+    "pagina": 46,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+    "cedula": "79553571",
+    "evidencia_id": 15,
+    "pagina": 32,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+    "cedula": "79608355",
+    "evidencia_id": 8,
+    "pagina": 17,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "GARCIA SAAVEDRA ALEXANDER",
+    "cedula": "79645834",
+    "evidencia_id": 35,
+    "pagina": 91,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "ORTIZ PARRA OSCAR ANDRES",
+    "cedula": "79794765",
+    "evidencia_id": 75,
+    "pagina": 166,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "TEJADA CACERES JOSE JULIAN",
+    "cedula": "79938063",
+    "evidencia_id": 85,
+    "pagina": 197,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+    "cedula": "80028026",
+    "evidencia_id": 95,
+    "pagina": 226,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+    "cedula": "80055699",
+    "evidencia_id": 41,
+    "pagina": 101,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "CORREA VARGAS PAULO IVAN",
+    "cedula": "80180164",
+    "evidencia_id": 110,
+    "pagina": 290,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+    "cedula": "80240511",
+    "evidencia_id": 105,
+    "pagina": 270,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "BURGOS SANDRO RAFAEL",
+    "cedula": "88160526",
+    "evidencia_id": 100,
+    "pagina": 250,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+    "cedula": "91487547",
+    "evidencia_id": 67,
+    "pagina": 155,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "PORRAS PLATA LUIS ALEXANDER",
+    "cedula": "91493470",
+    "evidencia_id": 79,
+    "pagina": 179,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "MONTES MORA ALEXANDER",
+    "cedula": "93130276",
+    "evidencia_id": 60,
+    "pagina": 141,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   },
+   {
+    "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+    "cedula": "93394896",
+    "evidencia_id": 55,
+    "pagina": 127,
+    "tipo_real": "PROCURADURIA",
+    "fecha_pagina": "2026-07-01",
+    "fechas_pagina": [
+     "2026-07-01"
+    ],
+    "dias_vigencia": 58,
+    "estado": "EVIDENCIA_INSUFICIENTE"
+   }
+  ],
+  "requisitos": [
+   {
+    "Convocatoria": "PRUEBA-001",
+    "Tipo reconocimiento": "MEDALLA",
+    "Norma aplicable": "Disposicion 055 de 2025",
+    "Norma titulo": "Por la cual se establece el reconocimiento documental ISEM26",
+    "Version matriz": "1.1",
+    "Requisito": "R001",
+    "Descripcion": "Identificacion del candidato valida",
+    "Articulo": "PRIMERO",
+    "Fundamento": "Acreditar la identificacion del postulante de forma valida.",
+    "Obligatoriedad": "OBLIGATORIO",
+    "Orden": 1
+   },
+   {
+    "Convocatoria": "PRUEBA-001",
+    "Tipo reconocimiento": "MEDALLA",
+    "Norma aplicable": "Disposicion 055 de 2025",
+    "Norma titulo": "Por la cual se establece el reconocimiento documental ISEM26",
+    "Version matriz": "1.1",
+    "Requisito": "R002",
+    "Descripcion": "Certificado de antecedentes disciplinarios vigente",
+    "Articulo": "SEGUNDO",
+    "Fundamento": "Certificado de antecedentes expedido dentro de los ultimos treinta dias.",
+    "Obligatoriedad": "OBLIGATORIO",
+    "Orden": 2
+   }
+  ]
+ },
+ "duplicados": {
+  "paginaref_multiples": {
+   "8": [
+    4,
+    5
+   ],
+   "116": [
+    50,
+    51
+   ]
+  },
+  "radicados_repetidos": {
+   "20260000891688383": [
+    "8",
+    "116"
+   ],
+   "20260000891804553": [
+    "61"
+   ],
+   "20240030543503543": [
+    "65"
+   ],
+   "20260000891488093": [
+    "93",
+    "168"
+   ],
+   "2025315013452073": [
+    "105"
+   ],
+   "20240030540472541": [
+    "117"
+   ],
+   "20240530543734203": [
+    "117"
+   ],
+   "20250030540003211": [
+    "117"
+   ],
+   "2025315048752638": [
+    "146"
+   ],
+   "20240030543734903": [
+    "170"
+   ],
+   "2026107009907733": [
+    "181",
+    "182"
+   ],
+   "2026312009856093": [
+    "183"
+   ],
+   "2025315007856528": [
+    "184",
+    "238",
+    "278"
+   ],
+   "2026312011466153": [
+    "201"
+   ],
+   "2024315007536828": [
+    "202"
+   ],
+   "2026312007896893": [
+    "236"
+   ],
+   "2025315007855528": [
+    "258"
+   ],
+   "2026107006197793": [
+    "274",
+    "275"
+   ],
+   "2026312003993463": [
+    "276",
+    "277"
+   ]
+  }
+ },
+ "paginas_sin_documento": [
+  {
+   "pagina": 168,
+   "tipo": "CONSTANCIA",
+   "personas": [
+    {
+     "persona": "GARCIA RENGIFO JHON JAIRO",
+     "cedula": "18008020",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "CABRERA MARTINEZ NORMAN IVAN",
+     "cedula": "73161297",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "LEAL GARCIA JESUS ARLEY",
+     "cedula": "73183461",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+     "cedula": "79608355",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "GARCIA SAAVEDRA ALEXANDER",
+     "cedula": "79645834",
+     "nombres_match": 2,
+     "cedula_match": true
+    },
+    {
+     "persona": "ORTIZ PARRA OSCAR ANDRES",
+     "cedula": "79794765",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "TEJADA CACERES JOSE JULIAN",
+     "cedula": "79938063",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+     "cedula": "80028026",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "CORREA VARGAS PAULO IVAN",
+     "cedula": "80180164",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "PORRAS PLATA LUIS ALEXANDER",
+     "cedula": "91493470",
+     "nombres_match": 2,
+     "cedula_match": false
+    },
+    {
+     "persona": "MONTES MORA ALEXANDER",
+     "cedula": "93130276",
+     "nombres_match": 2,
+     "cedula_match": false
+    }
+   ],
+   "radicados": [
+    "20260000891488093"
+   ]
+  }
+ ],
+ "consistencia": [
+  {
+   "tipo": "OBSERVACION",
+   "descripcion": "TRAZABILIDAD asocia TODAS las evidencias a R001 (114) y solo las PROCURADURIA a R002 (20)",
+   "detalle": "R001=114 R002=20"
+  }
+ ],
+ "hallazgos": [
+  {
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "evidencia_id": 32,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA_MILITAR",
+   "pagina_pdf": "70-71",
+   "severidad": "ALTO",
+   "tipo_hallazgo": "DUDA_REQUIERE_REVISION",
+   "descripcion": "no se localizó GARCIA RENGIFO JHON JAIRO/18008020 en pag 70-71 (OCR/no legible)",
+   "cambia_decision": "NO",
+   "decision_afectada": "R001",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CEDULA_MILITAR",
+    "fechas_pagina": [
+     "1978-02-22",
+     "2024-11-29",
+     "2024-12-17",
+     "2026-05-08"
+    ],
+    "personas_pagina": [
+     "CAÑON PINILLA JIDSELIN",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "evidencia_id": 31,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "75",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA RENGIFO JHON JAIRO",
+     "LEAL GARCIA JESUS ARLEY"
+    ]
+   }
+  },
+  {
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "evidencia_id": 93,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "213",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CAMACHO GUZMAN JOHANN RODRIGO",
+     "PORRAS PLATA LUIS ALEXANDER",
+     "VILLAMIZAR PEREZ CONSTANZA"
+    ]
+   }
+  },
+  {
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "evidencia_id": 6,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "9",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "evidencia_id": 49,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "115",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "MONTES MORA ALEXANDER",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "evidencia_id": 18,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "36",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "LEAL GARCIA JESUS ARLEY",
+     "MARMOLEJO CUMBE CARLOS ERNESTO",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "evidencia_id": 11,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "21",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "PORRAS PLATA LUIS ALEXANDER",
+     "SUAREZ CALDERON JESUS LEONARDO"
+    ]
+   }
+  },
+  {
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "evidencia_id": 38,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "94",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA SAAVEDRA ALEXANDER",
+     "LEAL GARCIA JESUS ARLEY",
+     "MONTES MORA ALEXANDER",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "evidencia_id": 77,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "169",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "MONTES MORA ALEXANDER",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER",
+     "SUAREZ CALDERON JESUS LEONARDO"
+    ]
+   }
+  },
+  {
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "evidencia_id": 43,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA",
+   "pagina_pdf": "103",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "FALSO_POSITIVO",
+   "descripcion": "registrado CEDULA; pagina 103 real=CONSTANCIA",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [
+     "2026-04-21"
+    ],
+    "personas_pagina": [
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA RENGIFO JHON JAIRO",
+     "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+     "LOPEZ ESCOBAR CAMPO ELIAS",
+     "MONTES MORA ALEXANDER",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "evidencia_id": 112,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA_MILITAR",
+   "pagina_pdf": "286-287",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "DUDA_REQUIERE_REVISION",
+   "descripcion": "nombre CORREA VARGAS PAULO IVAN en pagina pero cédula 80180164 no confirmable",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CEDULA_MILITAR",
+    "fechas_pagina": [
+     "1981-05-15",
+     "2022-05-31",
+     "2022-06-09",
+     "2026-03-13"
+    ],
+    "personas_pagina": [
+     "AGUDELO ROJAS MANUEL DIONICIO",
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "evidencia_id": 113,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "296",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "MONTES MORA ALEXANDER",
+     "PORRAS PLATA LUIS ALEXANDER",
+     "SUAREZ CALDERON JESUS LEONARDO"
+    ]
+   }
+  },
+  {
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "evidencia_id": 102,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA_MILITAR",
+   "pagina_pdf": "246-247",
+   "severidad": "ALTO",
+   "tipo_hallazgo": "DUDA_REQUIERE_REVISION",
+   "descripcion": "no se localizó BURGOS SANDRO RAFAEL/88160526 en pag 246-247 (OCR/no legible)",
+   "cambia_decision": "NO",
+   "decision_afectada": "R001",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CEDULA_MILITAR",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "LEAL GARCIA JESUS ARLEY"
+    ]
+   }
+  },
+  {
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "evidencia_id": 103,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "256",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "BURGOS SANDRO RAFAEL",
+     "LEAL GARCIA JESUS ARLEY"
+    ]
+   }
+  },
+  {
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "evidencia_id": 69,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA",
+   "pagina_pdf": "157",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "FALSO_POSITIVO",
+   "descripcion": "registrado CEDULA; pagina 157 real=CONSTANCIA",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [
+     "2026-05-05"
+    ],
+    "personas_pagina": [
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA RENGIFO JHON JAIRO",
+     "MONTES MORA ALEXANDER",
+     "NUÑEZ CAPACHO ALEX FERNEY",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "evidencia_id": 70,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "159",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CAMACHO GUZMAN JOHANN RODRIGO",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "NUÑEZ CAPACHO ALEX FERNEY",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "evidencia_id": 114,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA_MILITAR",
+   "pagina_pdf": "177",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "DUDA_REQUIERE_REVISION",
+   "descripcion": "nombre PORRAS PLATA LUIS ALEXANDER en pagina pero cédula 91493470 no confirmable",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CEDULA_MILITAR",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "ARIAS ROJAS EDUARDO ALBERTO",
+     "CAÑON PINILLA JIDSELIN",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "evidencia_id": 63,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA",
+   "pagina_pdf": "144",
+   "severidad": "CRITICO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "registrado CEDULA; pagina 144 real=CONSTANCIA",
+   "cambia_decision": "SI",
+   "decision_afectada": "R001",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [
+     "2026-04-21"
+    ],
+    "personas_pagina": [
+     "CABRERA MARTINEZ NORMAN IVAN",
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA RENGIFO JHON JAIRO",
+     "MONTES MORA ALEXANDER",
+     "ORTIZ PARRA OSCAR ANDRES",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "evidencia_id": 62,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "143",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "MONTES MORA ALEXANDER",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "evidencia_id": 58,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA",
+   "pagina_pdf": "130",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "FALSO_POSITIVO",
+   "descripcion": "registrado CEDULA; pagina 130 real=CONSTANCIA",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [
+     "2026-04-17"
+    ],
+    "personas_pagina": [
+     "CORREA VARGAS PAULO IVAN",
+     "GARCIA RENGIFO JHON JAIRO",
+     "LOPEZ ESCOBAR CAMPO ELIAS",
+     "NUÑEZ CAPACHO ALEX FERNEY",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "evidencia_id": 57,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CONSTANCIA",
+   "pagina_pdf": "129",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "sin fecha de documento en DB/Excel (paginas muestran [])",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "tipo_real": "CONSTANCIA",
+    "fechas_pagina": [],
+    "personas_pagina": [
+     "CAMACHO GUZMAN JOHANN RODRIGO",
+     "CORREA VARGAS PAULO IVAN",
+     "LEAL GARCIA JESUS ARLEY",
+     "LOPEZ ESCOBAR CAMPO ELIAS",
+     "PORRAS PLATA LUIS ALEXANDER"
+    ]
+   }
+  },
+  {
+   "persona": "SISTEMA",
+   "cedula": "",
+   "evidencia_id": null,
+   "requisitos": [],
+   "tipo_documento": "-",
+   "pagina_pdf": "-",
+   "severidad": "ALTO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "TRAZABILIDAD asocia las 114 evidencias a R001 (sobre-inclusión) y solo 20 PROCURADURIA a R002",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "conteo": {
+     "R001": 114,
+     "R002": 20
+    }
+   }
+  },
+  {
+   "persona": "SISTEMA",
+   "cedula": "",
+   "evidencia_id": null,
+   "requisitos": [],
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "pagina_pdf": "8,116",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "Documento físico repetido (mismo radicado 20260000891688383) en páginas ['8', '116']",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "radicado": "20260000891688383"
+   }
+  },
+  {
+   "persona": "SISTEMA",
+   "cedula": "",
+   "evidencia_id": null,
+   "requisitos": [],
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "pagina_pdf": "93,168",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "Documento físico repetido (mismo radicado 20260000891488093) en páginas ['93', '168']",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "radicado": "20260000891488093"
+   }
+  },
+  {
+   "persona": "SISTEMA",
+   "cedula": "",
+   "evidencia_id": null,
+   "requisitos": [],
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "pagina_pdf": "184,238,278",
+   "severidad": "MEDIO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "Documento físico repetido (mismo radicado 2025315007856528) en páginas ['184', '238', '278']",
+   "cambia_decision": "NO",
+   "decision_afectada": "",
+   "hallazgo_observado_en_pdf": {
+    "radicado": "2025315007856528"
+   }
+  },
+  {
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "",
+   "evidencia_id": null,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA",
+   "pagina_pdf": "138",
+   "severidad": "CRITICO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "Cédula de ciudadanía real del candidato (p138, N° 93130276) NO registrada en Excel/BD; la evidencia EV63 apunta a CONSTANCIA N° 101442 (p144)",
+   "cambia_decision": "SI",
+   "decision_afectada": "R001",
+   "hallazgo_observado_en_pdf": {
+    "pagina_138": "IDENTIFICACION PERSONAL CEDULA DE CIUDADANIA A-2903100-00154396-M-0093130276-20090417",
+    "ev63_real": "CONSTANCIA"
+   }
+  },
+  {
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "evidencia_id": null,
+   "requisitos": [
+    "R001"
+   ],
+   "tipo_documento": "CEDULA/CEDULA_MILITAR",
+   "pagina_pdf": "-",
+   "severidad": "CRITICO",
+   "tipo_hallazgo": "ERROR_REAL_DEL_SISTEMA",
+   "descripcion": "R001 en CUMPLE sin evidencia de identificacion valida en DATOS_EVIDENCIAS (documentos de identificacion no enlazados como evidencia)",
+   "cambia_decision": "SI",
+   "decision_afectada": "R001",
+   "hallazgo_observado_en_pdf": {
+    "evidencias_identidad_registradas": []
+   }
+  }
+ ],
+ "evidencias": [
+  {
+   "id": 32,
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "pagina": 70,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "ALTO",
+     "PERSONA_NO_VERIFICADA",
+     "no se localizó GARCIA RENGIFO JHON JAIRO/18008020 en pag 70-71 (OCR/no legible)"
+    ]
+   ]
+  },
+  {
+   "id": 31,
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "pagina": 75,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 30,
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "pagina": 74,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 28,
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "pagina": 72,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 29,
+   "persona": "GARCIA RENGIFO JHON JAIRO",
+   "cedula": "18008020",
+   "pagina": 73,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 89,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 206,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 93,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 213,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 92,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 210,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 90,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 208,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 91,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 209,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 88,
+   "persona": "VILLAMIZAR PEREZ CONSTANZA",
+   "cedula": "52412525",
+   "pagina": 205,
+   "tipo_documento": "SOLICITUD",
+   "tipo_real": "SOLICITUD",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 23,
+   "persona": "CAÑON PINILLA JIDSELIN",
+   "cedula": "72192689",
+   "pagina": 56,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 27,
+   "persona": "CAÑON PINILLA JIDSELIN",
+   "cedula": "72192689",
+   "pagina": 61,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 26,
+   "persona": "CAÑON PINILLA JIDSELIN",
+   "cedula": "72192689",
+   "pagina": 60,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 24,
+   "persona": "CAÑON PINILLA JIDSELIN",
+   "cedula": "72192689",
+   "pagina": 58,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 25,
+   "persona": "CAÑON PINILLA JIDSELIN",
+   "cedula": "72192689",
+   "pagina": 59,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 4,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 8,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 50,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 116,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 6,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 9,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 3,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 7,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 1,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 5,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 2,
+   "persona": "CABRERA MARTINEZ NORMAN IVAN",
+   "cedula": "73161297",
+   "pagina": 6,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 44,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 110,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 45,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 111,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 5,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 8,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 51,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 116,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 49,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 115,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 48,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 114,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 46,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 112,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 47,
+   "persona": "LEAL GARCIA JESUS ARLEY",
+   "cedula": "73183461",
+   "pagina": 113,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 19,
+   "persona": "SUAREZ CALDERON JESUS LEONARDO",
+   "cedula": "73573626",
+   "pagina": 44,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 22,
+   "persona": "SUAREZ CALDERON JESUS LEONARDO",
+   "cedula": "73573626",
+   "pagina": 47,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 20,
+   "persona": "SUAREZ CALDERON JESUS LEONARDO",
+   "cedula": "73573626",
+   "pagina": 45,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 21,
+   "persona": "SUAREZ CALDERON JESUS LEONARDO",
+   "cedula": "73573626",
+   "pagina": 46,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 17,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 28,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 18,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 36,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 16,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 33,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 14,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 31,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 15,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 32,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 13,
+   "persona": "MARMOLEJO CUMBE CARLOS ERNESTO",
+   "cedula": "79553571",
+   "pagina": 26,
+   "tipo_documento": "SOLICITUD",
+   "tipo_real": "SOLICITUD",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 12,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 22,
+   "tipo_documento": "ACTO_ADMINISTRATIVO",
+   "tipo_real": "ACTO_ADMINISTRATIVO",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 10,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 14,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 11,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 21,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 9,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 18,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 7,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 16,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 8,
+   "persona": "ARIAS ROJAS EDUARDO ALBERTO",
+   "cedula": "79608355",
+   "pagina": 17,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 33,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 89,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 37,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 93,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 38,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 94,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 36,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 92,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 34,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 90,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 35,
+   "persona": "GARCIA SAAVEDRA ALEXANDER",
+   "cedula": "79645834",
+   "pagina": 91,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 72,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 163,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 73,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 164,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 77,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 169,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 76,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 167,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 74,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 165,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 75,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 166,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 71,
+   "persona": "ORTIZ PARRA OSCAR ANDRES",
+   "cedula": "79794765",
+   "pagina": 161,
+   "tipo_documento": "SOLICITUD",
+   "tipo_real": "SOLICITUD",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 83,
+   "persona": "TEJADA CACERES JOSE JULIAN",
+   "cedula": "79938063",
+   "pagina": 194,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 87,
+   "persona": "TEJADA CACERES JOSE JULIAN",
+   "cedula": "79938063",
+   "pagina": 201,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 86,
+   "persona": "TEJADA CACERES JOSE JULIAN",
+   "cedula": "79938063",
+   "pagina": 198,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 84,
+   "persona": "TEJADA CACERES JOSE JULIAN",
+   "cedula": "79938063",
+   "pagina": 196,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 85,
+   "persona": "TEJADA CACERES JOSE JULIAN",
+   "cedula": "79938063",
+   "pagina": 197,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 97,
+   "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+   "cedula": "80028026",
+   "pagina": 220,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 98,
+   "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+   "cedula": "80028026",
+   "pagina": 236,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 96,
+   "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+   "cedula": "80028026",
+   "pagina": 228,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 94,
+   "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+   "cedula": "80028026",
+   "pagina": 224,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 95,
+   "persona": "AGUDELO ROJAS MANUEL DIONICIO",
+   "cedula": "80028026",
+   "pagina": 226,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 43,
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "pagina": 103,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "INCORRECTA",
+   "hallazgos": [
+    [
+     "CRITICO",
+     "TIPO_INCORRECTO",
+     "registrado CEDULA; pagina 103 real=CONSTANCIA"
+    ]
+   ]
+  },
+  {
+   "id": 39,
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "pagina": 99,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 42,
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "pagina": 102,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 40,
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "pagina": 100,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 41,
+   "persona": "GOMEZ RODRIGUEZ DIEGO FERNANDO",
+   "cedula": "80055699",
+   "pagina": 101,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 112,
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "pagina": 286,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "CEDULA_NO_CONFIRMADA",
+     "nombre CORREA VARGAS PAULO IVAN en pagina pero cédula 80180164 no confirmable"
+    ]
+   ]
+  },
+  {
+   "id": 113,
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "pagina": 296,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 111,
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "pagina": 292,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 109,
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "pagina": 288,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 110,
+   "persona": "CORREA VARGAS PAULO IVAN",
+   "cedula": "80180164",
+   "pagina": 290,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 108,
+   "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+   "cedula": "80240511",
+   "pagina": 276,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 107,
+   "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+   "cedula": "80240511",
+   "pagina": 274,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 106,
+   "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+   "cedula": "80240511",
+   "pagina": 272,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 104,
+   "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+   "cedula": "80240511",
+   "pagina": 268,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 105,
+   "persona": "CAMACHO GUZMAN JOHANN RODRIGO",
+   "cedula": "80240511",
+   "pagina": 270,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 102,
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "pagina": 246,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "ALTO",
+     "PERSONA_NO_VERIFICADA",
+     "no se localizó BURGOS SANDRO RAFAEL/88160526 en pag 246-247 (OCR/no legible)"
+    ]
+   ]
+  },
+  {
+   "id": 103,
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "pagina": 256,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 101,
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "pagina": 252,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 99,
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "pagina": 248,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 100,
+   "persona": "BURGOS SANDRO RAFAEL",
+   "cedula": "88160526",
+   "pagina": 250,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 69,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 157,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "INCORRECTA",
+   "hallazgos": [
+    [
+     "CRITICO",
+     "TIPO_INCORRECTO",
+     "registrado CEDULA; pagina 157 real=CONSTANCIA"
+    ]
+   ]
+  },
+  {
+   "id": 65,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 153,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 70,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 159,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 68,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 156,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 66,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 154,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 67,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 155,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 64,
+   "persona": "NUÑEZ CAPACHO ALEX FERNEY",
+   "cedula": "91487547",
+   "pagina": 150,
+   "tipo_documento": "SOLICITUD",
+   "tipo_real": "SOLICITUD",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 114,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 177,
+   "tipo_documento": "CEDULA_MILITAR",
+   "tipo_real": "CEDULA_MILITAR",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "CEDULA_NO_CONFIRMADA",
+     "nombre PORRAS PLATA LUIS ALEXANDER en pagina pero cédula 91493470 no confirmable"
+    ]
+   ]
+  },
+  {
+   "id": 82,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 183,
+   "tipo_documento": "COMUNICACION_OFICIAL",
+   "tipo_real": "COMUNICACION_OFICIAL",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 81,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 181,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 80,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 180,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 78,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 178,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 79,
+   "persona": "PORRAS PLATA LUIS ALEXANDER",
+   "cedula": "91493470",
+   "pagina": 179,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 63,
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "pagina": 144,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "INCORRECTA",
+   "hallazgos": [
+    [
+     "CRITICO",
+     "TIPO_INCORRECTO",
+     "registrado CEDULA; pagina 144 real=CONSTANCIA"
+    ]
+   ]
+  },
+  {
+   "id": 62,
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "pagina": 143,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 61,
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "pagina": 142,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 59,
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "pagina": 140,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 60,
+   "persona": "MONTES MORA ALEXANDER",
+   "cedula": "93130276",
+   "pagina": 141,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 53,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 124,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CEDULA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 58,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 130,
+   "tipo_documento": "CEDULA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "INCORRECTA",
+   "hallazgos": [
+    [
+     "CRITICO",
+     "TIPO_INCORRECTO",
+     "registrado CEDULA; pagina 130 real=CONSTANCIA"
+    ]
+   ]
+  },
+  {
+   "id": 57,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 129,
+   "tipo_documento": "CONSTANCIA",
+   "tipo_real": "CONSTANCIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "PARCIAL",
+   "hallazgos": [
+    [
+     "MEDIO",
+     "FECHA_REGISTRADA_AUSENTE",
+     "sin fecha de documento en DB/Excel (paginas muestran [])"
+    ]
+   ]
+  },
+  {
+   "id": 56,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 128,
+   "tipo_documento": "CONTRALORIA",
+   "tipo_real": "CONTRALORIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 54,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 126,
+   "tipo_documento": "POLICIA",
+   "tipo_real": "POLICIA",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 55,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 127,
+   "tipo_documento": "PROCURADURIA",
+   "tipo_real": "PROCURADURIA",
+   "requisitos": [
+    "R001",
+    "R002"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  },
+  {
+   "id": 52,
+   "persona": "LOPEZ ESCOBAR CAMPO ELIAS",
+   "cedula": "93394896",
+   "pagina": 123,
+   "tipo_documento": "SOLICITUD",
+   "tipo_real": "SOLICITUD",
+   "requisitos": [
+    "R001"
+   ],
+   "veredicto": "CORRECTA",
+   "hallazgos": []
+  }
+ ]
+}

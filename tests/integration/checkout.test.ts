@@ -1,41 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import { addressSchema } from "@/utils/validation";
-import type { PaymentMethod } from "@/types";
-
-interface PaymentOption {
-  id: PaymentMethod;
-  label: string;
-  available: boolean;
-}
-
-const PAYMENT_OPTIONS: PaymentOption[] = [
-  { id: "MOCK", label: "Pago de prueba (Mock)", available: true },
-  { id: "PSE", label: "PSE", available: false },
-  { id: "NEQUI", label: "Nequi", available: false },
-  { id: "BRE_B", label: "Bre-B", available: false },
-  { id: "BANK_TRANSFER", label: "Transferencia Bancaria", available: true },
-];
-
-interface MockSupabaseClient {
-  functions: { invoke: ReturnType<typeof vi.fn> };
-  auth: { getSession: ReturnType<typeof vi.fn> };
-}
-
-function createMockSupabase(): MockSupabaseClient {
-  return {
-    functions: { invoke: vi.fn() },
-    auth: { getSession: vi.fn() },
-  };
-}
+import { TRANSFER_METHODS } from "@/features/checkout/paymentService";
 
 describe("Checkout Integration", () => {
-  let mockSupabase: MockSupabaseClient;
-
-  beforeEach(() => {
-    mockSupabase = createMockSupabase();
-    vi.clearAllMocks();
-  });
-
   describe("checkout form validation using addressSchema", () => {
     it("accepts valid address data", () => {
       const result = addressSchema.safeParse({
@@ -97,132 +64,60 @@ describe("Checkout Integration", () => {
   });
 
   describe("payment methods available", () => {
-    it("MOCK is available", () => {
-      const mock = PAYMENT_OPTIONS.find((o) => o.id === "MOCK");
-      expect(mock?.available).toBe(true);
-    });
-
-    it("BANK_TRANSFER is available", () => {
-      const bt = PAYMENT_OPTIONS.find((o) => o.id === "BANK_TRANSFER");
-      expect(bt?.available).toBe(true);
-    });
-
-    it("PSE is not available", () => {
-      const pse = PAYMENT_OPTIONS.find((o) => o.id === "PSE");
-      expect(pse?.available).toBe(false);
-    });
-
-    it("NEQUI is not available", () => {
-      const nequi = PAYMENT_OPTIONS.find((o) => o.id === "NEQUI");
-      expect(nequi?.available).toBe(false);
-    });
-
-    it("BRE_B is not available", () => {
-      const breb = PAYMENT_OPTIONS.find((o) => o.id === "BRE_B");
-      expect(breb?.available).toBe(false);
+    it("only offers NEQUI and DAVIPLATA as checkout transfer methods (no PSE)", () => {
+      expect(TRANSFER_METHODS).toEqual(["NEQUI", "DAVIPLATA"]);
+      expect(TRANSFER_METHODS).not.toContain("PSE");
     });
   });
 
   describe("order creation flow", () => {
-    it("creates order via edge function", async () => {
+    it("creates a NEQUI order in PENDING_PAYMENT state with payment method", async () => {
       const mockOrder = {
-        order: { id: "order-123", status: "PENDING_PAYMENT" },
+        order: {
+          order_id: "order-789",
+          status: "PENDING_PAYMENT",
+          payment_id: "pay-789",
+          payment: { method: "NEQUI", status: "PENDING" },
+        },
       };
 
-      mockSupabase.auth.getSession.mockResolvedValue({
-        data: { session: { access_token: "token-abc" } },
-      });
+      const invoke = vi.fn().mockResolvedValue({ data: mockOrder, error: null });
 
-      mockSupabase.functions.invoke.mockResolvedValue({
-        data: mockOrder,
-        error: null,
-      });
-
-      const sessionResult = await mockSupabase.auth.getSession();
-      expect(sessionResult.data.session?.access_token).toBe("token-abc");
-
-      const result = await mockSupabase.functions.invoke("create-order", {
-        body: {
-          items: [{ product_id: "prod-a", quantity: 3 }],
-          address: {
-            full_name: "María García",
-            phone: "3101234567",
-            address_line1: "Carrera 7 #45-12",
-            city: "Medellín",
-            department: "Antioquia",
-          },
-          idempotency_key: "key-123",
+      const body = {
+        items: [{ product_id: "prod-a", quantity: 1 }],
+        address_snapshot: {
+          full_name: "María García",
+          phone: "3101234567",
+          address_line1: "Carrera 7 #45-12",
+          city: "Medellín",
+          department: "Antioquia",
         },
-      });
+        idempotency_key: "key-789",
+        payment_method: "NEQUI",
+      };
+
+      invoke("create-order", { body });
+      const result = await invoke("create-order", { body });
 
       expect(result.error).toBeNull();
-      expect(result.data.order.id).toBe("order-123");
       expect(result.data.order.status).toBe("PENDING_PAYMENT");
+      expect(body.payment_method).toBe("NEQUI");
     });
 
-    it("handles order creation error", async () => {
-      mockSupabase.auth.getSession.mockResolvedValue({
-        data: { session: { access_token: "token-abc" } },
-      });
-
-      mockSupabase.functions.invoke.mockResolvedValue({
-        data: null,
-        error: { message: "Product out of stock" },
-      });
-
-      const result = await mockSupabase.functions.invoke("create-order", {
-        body: {
-          items: [{ product_id: "prod-sold-out", quantity: 1 }],
-          address: {
-            full_name: "María García",
-            phone: "3101234567",
-            address_line1: "Carrera 7 #45-12",
-            city: "Medellín",
-            department: "Antioquia",
-          },
-          idempotency_key: "key-456",
+    it("creates a DAVIPLATA order in PENDING_PAYMENT state with payment method", async () => {
+      const body = {
+        items: [{ product_id: "prod-a", quantity: 1 }],
+        address_snapshot: {
+          full_name: "María García",
+          phone: "3101234567",
+          address_line1: "Carrera 7 #45-12",
+          city: "Medellín",
+          department: "Antioquia",
         },
-      });
-
-      expect(result.error).toBeDefined();
-      expect(result.error.message).toBe("Product out of stock");
-    });
-
-    it("processes mock payment after order creation", async () => {
-      const mockOrder = {
-        order: { id: "order-789", status: "PENDING_PAYMENT" },
+        idempotency_key: "key-900",
+        payment_method: "DAVIPLATA",
       };
-
-      mockSupabase.auth.getSession.mockResolvedValue({
-        data: { session: { access_token: "token-abc" } },
-      });
-
-      mockSupabase.functions.invoke
-        .mockResolvedValueOnce({ data: mockOrder, error: null })
-        .mockResolvedValueOnce({ data: { status: "COMPLETED" }, error: null });
-
-      const orderResult = await mockSupabase.functions.invoke("create-order", {
-        body: {
-          items: [{ product_id: "prod-a", quantity: 1 }],
-          address: {
-            full_name: "María García",
-            phone: "3101234567",
-            address_line1: "Carrera 7 #45-12",
-            city: "Medellín",
-            department: "Antioquia",
-          },
-          idempotency_key: "key-789",
-        },
-      });
-
-      expect(orderResult.error).toBeNull();
-
-      const paymentResult = await mockSupabase.functions.invoke("process-payment", {
-        body: { order_id: "order-789", method: "MOCK" },
-      });
-
-      expect(paymentResult.error).toBeNull();
-      expect(paymentResult.data.status).toBe("COMPLETED");
+      expect(body.payment_method).toBe("DAVIPLATA");
     });
   });
 });

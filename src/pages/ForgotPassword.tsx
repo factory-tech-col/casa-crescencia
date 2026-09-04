@@ -88,7 +88,7 @@ export default function ForgotPassword() {
               </button>
 
               <p className="text-center mt-6 text-sm text-gray-600">
-                <Link to="/iniciar-sesion" className="text-miyuki-600 hover:text-miyuki-700 font-medium">
+                <Link to="/iniciar-sesion" className="text-oro-600 hover:text-oro-700 font-medium">
                   Volver al inicio de sesión
                 </Link>
               </p>

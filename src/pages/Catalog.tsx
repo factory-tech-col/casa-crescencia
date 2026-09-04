@@ -12,7 +12,9 @@ export default function Catalog() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [search, setSearch] = useState(searchParams.get("q") || "");
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("categoria") || "");
+  const [selectedCategory, setSelectedCategory] = useState(
+    (searchParams.get("categoria") || "").toLowerCase(),
+  );
   const [sortBy, setSortBy] = useState<SortOption>("newest");
 
   const debouncedSearch = useDebounce(search, 300);
@@ -25,6 +27,14 @@ export default function Catalog() {
   }, [debouncedSearch, selectedCategory, setSearchParams]);
 
   useEffect(() => {
+    const urlCategory = (searchParams.get("categoria") || "").toLowerCase();
+    if (urlCategory !== selectedCategory) {
+      setSelectedCategory(urlCategory);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+  useEffect(() => {
     fetchProducts({
       category: selectedCategory || undefined,
       search: debouncedSearch || undefined,
@@ -34,7 +44,7 @@ export default function Catalog() {
 
   return (
     <>
-      <SEO title="Productos" description="Explora todos los productos de MIYUKI" />
+      <SEO title="Productos" description="Explora todos los productos de Casa Crescencia" />
 
       <div className="container-custom py-8">
         <h1 className="text-3xl font-display font-bold text-gray-900 mb-6">Productos</h1>
@@ -50,7 +60,7 @@ export default function Catalog() {
                   onClick={() => setSelectedCategory("")}
                   className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                     !selectedCategory
-                      ? "bg-miyuki-100 text-miyuki-700 font-medium"
+                      ? "bg-oro-100 text-oro-700 font-medium"
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
@@ -63,7 +73,7 @@ export default function Catalog() {
                     onClick={() => setSelectedCategory(cat.slug)}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                       selectedCategory === cat.slug
-                        ? "bg-miyuki-100 text-miyuki-700 font-medium"
+                        ? "bg-oro-100 text-oro-700 font-medium"
                         : "text-gray-600 hover:bg-gray-100"
                     }`}
                   >
@@ -86,7 +96,12 @@ export default function Catalog() {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
                 </svg>
                 <input
                   id="search"
@@ -104,8 +119,8 @@ export default function Catalog() {
                     onClick={() => setSelectedCategory("")}
                     className={`shrink-0 px-3 py-2 rounded-full text-sm border transition-colors ${
                       !selectedCategory
-                        ? "bg-miyuki-600 text-white border-miyuki-600"
-                        : "bg-white text-gray-600 border-gray-300 hover:border-miyuki-300"
+                        ? "bg-oro-600 text-white border-oro-600"
+                        : "bg-white text-gray-600 border-gray-300 hover:border-oro-300"
                     }`}
                   >
                     Todos
@@ -116,8 +131,8 @@ export default function Catalog() {
                       onClick={() => setSelectedCategory(cat.slug)}
                       className={`shrink-0 px-3 py-2 rounded-full text-sm border transition-colors ${
                         selectedCategory === cat.slug
-                          ? "bg-miyuki-600 text-white border-miyuki-600"
-                          : "bg-white text-gray-600 border-gray-300 hover:border-miyuki-300"
+                          ? "bg-oro-600 text-white border-oro-600"
+                          : "bg-white text-gray-600 border-gray-300 hover:border-oro-300"
                       }`}
                     >
                       {cat.name}
@@ -154,10 +169,22 @@ export default function Catalog() {
               </div>
             ) : products.length === 0 ? (
               <div className="text-center py-16">
-                <svg className="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <svg
+                  className="w-16 h-16 text-gray-300 mx-auto mb-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
                 </svg>
-                <h2 className="text-lg font-medium text-gray-900 mb-1">No se encontraron productos</h2>
+                <h2 className="text-lg font-medium text-gray-900 mb-1">
+                  No se encontraron productos
+                </h2>
                 <p className="text-gray-500">Intenta con otros filtros o términos de búsqueda</p>
               </div>
             ) : (

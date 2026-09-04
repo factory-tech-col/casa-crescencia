@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 
 type PaymentMode = "mock" | "live";
-type PaymentMethod = "MOCK" | "PSE" | "NEQUI" | "BRE_B" | "BANK_TRANSFER";
+type PaymentMethod = "MOCK" | "PSE" | "NEQUI" | "BRE_B" | "BANK_TRANSFER" | "CREDIT_CARD" | "PAYMENT_BUTTON";
 type PaymentStatus = "PENDING" | "COMPLETED" | "FAILED" | "REFUNDED";
 
 interface PaymentConfig {
@@ -108,6 +108,18 @@ describe("mock payment provider flow", () => {
   it("includes method name in transaction ID", () => {
     const result = getMockPaymentResult(10000, "BANK_TRANSFER");
     expect(result.transaction_id).toContain("bank_transfer");
+  });
+
+  it("returns COMPLETED for CREDIT_CARD", () => {
+    const result = getMockPaymentResult(50000, "CREDIT_CARD");
+    expect(result.status).toBe("COMPLETED");
+    expect(result.transaction_id).toContain("credit_card");
+  });
+
+  it("returns COMPLETED for PAYMENT_BUTTON", () => {
+    const result = getMockPaymentResult(75000, "PAYMENT_BUTTON");
+    expect(result.status).toBe("COMPLETED");
+    expect(result.transaction_id).toContain("payment_button");
   });
 });
 

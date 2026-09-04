@@ -83,7 +83,7 @@ export function AdminLayout() {
         >
           <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
             <NavLink to="/admin" className="flex items-center gap-2">
-              <span className="text-xl font-display font-bold text-miyuki-600">MIYUKI</span>
+              <span className="text-xl font-display font-bold text-oro-600">Casa Crescencia</span>
               <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
                 Admin
               </span>
@@ -111,7 +111,7 @@ export function AdminLayout() {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                         isActive
-                          ? "bg-miyuki-50 text-miyuki-700 border border-miyuki-200"
+                          ? "bg-oro-50 text-oro-700 border border-oro-200"
                           : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                       }`
                     }
@@ -135,7 +135,7 @@ export function AdminLayout() {
               </NavLink>
               {profile && (
                 <div className="flex items-center gap-3 px-3 py-2.5 mt-1 text-sm text-gray-500">
-                  <div className="w-8 h-8 rounded-full bg-miyuki-100 flex items-center justify-center text-miyuki-700 font-medium text-xs">
+                  <div className="w-8 h-8 rounded-full bg-oro-100 flex items-center justify-center text-oro-700 font-medium text-xs">
                     {profile.full_name?.charAt(0) ?? profile.role.charAt(0)}
                   </div>
                   <div className="truncate">

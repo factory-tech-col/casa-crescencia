@@ -1,0 +1,22 @@
+PASS | E1: evaluación CUMPLE generada
+PASS | E1: documentos con paginas y origen_texto | 5 documentos
+PASS | E1: personas válidas con ids, inválidas a revisión (FR-062/063) | 3 personas
+PASS | E1: cadena requisito→regla→evidencia→documento→pagina (SC-002) | requisito=R001 regla=R001-EV doc=CEDULA pagina=1
+PASS | E2: sin evidencia usa resultado configurado
+PASS | E2: contradicción → EVIDENCIA_CONTRADICTORIA conservando ambas
+PASS | E2: se conservan ambas evidencias contradictorias | 4 evidencias
+PASS | E2: caso derivado aparece en revision pendiente (FR-029) | 1 pendiente(s)
+PASS | E3: un AUDITOR no emite decisión final (FR-060)
+PASS | E3: REVISOR aprueba y queda APROBADA
+PASS | E3: audit trail registra autor y accion (SC-006) | accion=APROBAR
+PASS | E3: decisiones sin revisión siguen PENDIENTE_REVISION (FR-028)
+PASS | E4: reconstrucción lista versiones y componentes
+PASS | E4: reconstrucción en < 5 min (SC-009) | 0.01s
+PASS | E4: re-ejecución determinista (SC-008)
+PASS | E4: diff-corridas sin diferencias (FR-037) | 0 diff(s)
+PASS | E5: lote con corrupto no aborta y reporta errores (SC-007) | procesados=3 errores=1
+PASS | E5: reanudar no reprocesa lo completado (FR-041) | procesados=0 omitidos=3
+PASS | E6: sin IA el motor produce evaluaciones deterministas (FR-021)
+PASS | E6: contribución IA etiquetada como asistencia con metadatos (FR-035/045) | 1 metadato(s)
+PASS | E7: golden sintetico coincide con referencia (SC-004) | 9/9 (100.0%)
+PASS | E7: golden real coincide con referencia (SC-004) | 2/2 (100.0%)

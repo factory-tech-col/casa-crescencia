@@ -4,10 +4,10 @@ import { SEO } from "@/components/seo/SEO";
 export default function Shipping() {
   return (
     <>
-      <SEO title="Política de Envíos" description="Información sobre envíos en MIYUKI" />
+      <SEO title="Política de Envíos" description="Información sobre envíos en Casa Crescencia" />
       <div className="container-custom py-12 max-w-3xl">
         <nav className="text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-miyuki-600">Inicio</Link>
+          <Link to="/" className="hover:text-oro-600">Inicio</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-900">Política de Envíos</span>
         </nav>

@@ -30,6 +30,7 @@ export interface Product {
   currency: "COP";
   is_active: boolean;
   category_id: string | null;
+  order_index?: number | null;
   category?: Category;
   images?: ProductImage[];
   inventory?: Inventory;
@@ -85,13 +86,29 @@ export type PaymentStatus =
   | "REFUNDED"
   | "EXPIRED";
 
-export type PaymentMethod = "MOCK" | "PSE" | "NEQUI" | "BRE_B" | "BANK_TRANSFER";
+export type PaymentMethod =
+  | "MOCK"
+  | "PSE"
+  | "NEQUI"
+  | "DAVIPLATA"
+  | "BRE_B"
+  | "BANK_TRANSFER";
+
+export type PersonType = "NATURAL" | "JURIDICA";
+
+export interface PseInfo {
+  person_type: PersonType;
+  bank: string;
+  document_type?: string;
+  document_number?: string;
+}
 
 export interface Order {
   id: string;
   user_id: string;
   status: OrderStatus;
   subtotal: number;
+  iva: number;
   shipping_cost: number;
   total: number;
   currency: "COP";

@@ -193,7 +193,7 @@ export function AdminCategories() {
         <button
           type="button"
           onClick={openAddForm}
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-miyuki-600 text-white text-sm font-medium rounded-lg hover:bg-miyuki-700 transition-colors focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:ring-offset-2"
+          className="inline-flex items-center gap-2 px-4 py-2.5 bg-oro-600 text-white text-sm font-medium rounded-lg hover:bg-oro-700 transition-colors focus:outline-none focus:ring-2 focus:ring-oro-500 focus:ring-offset-2"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -230,7 +230,7 @@ export function AdminCategories() {
           <button
             type="button"
             onClick={openAddForm}
-            className="mt-4 text-sm font-medium text-miyuki-600 hover:text-miyuki-700"
+            className="mt-4 text-sm font-medium text-oro-600 hover:text-oro-700"
           >
             Agregar tu primera categoría
           </button>
@@ -306,8 +306,8 @@ export function AdminCategories() {
                       <button
                         type="button"
                         onClick={() => handleToggleActive(category)}
-                        className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:ring-offset-2 ${
-                          category.is_active ? "bg-miyuki-600" : "bg-gray-300"
+                        className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-oro-500 focus:ring-offset-2 ${
+                          category.is_active ? "bg-oro-600" : "bg-gray-300"
                         }`}
                         role="switch"
                         aria-checked={category.is_active}
@@ -325,7 +325,7 @@ export function AdminCategories() {
                         <button
                           type="button"
                           onClick={() => openEditForm(category)}
-                          className="p-1.5 text-gray-400 hover:text-miyuki-600 rounded-lg hover:bg-miyuki-50 transition-colors"
+                          className="p-1.5 text-gray-400 hover:text-oro-600 rounded-lg hover:bg-oro-50 transition-colors"
                           aria-label={`Editar ${category.name}`}
                         >
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -395,7 +395,7 @@ export function AdminCategories() {
                   required
                   value={form.name}
                   onChange={(e) => handleNameChange(e.target.value)}
-                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:border-miyuki-500"
+                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-oro-500 focus:border-oro-500"
                   placeholder="Nombre de la categoría"
                 />
               </div>
@@ -409,7 +409,7 @@ export function AdminCategories() {
                   type="text"
                   value={form.slug}
                   onChange={(e) => setForm((prev) => ({ ...prev, slug: e.target.value }))}
-                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:border-miyuki-500"
+                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-oro-500 focus:border-oro-500"
                   placeholder="slug-de-la-categoria"
                 />
               </div>
@@ -423,7 +423,7 @@ export function AdminCategories() {
                   rows={2}
                   value={form.description}
                   onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
-                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:border-miyuki-500 resize-none"
+                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-oro-500 focus:border-oro-500 resize-none"
                   placeholder="Descripción opcional"
                 />
               </div>
@@ -443,7 +443,7 @@ export function AdminCategories() {
                       sort_order: parseInt(e.target.value, 10) || 0,
                     }))
                   }
-                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:border-miyuki-500"
+                  className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-oro-500 focus:border-oro-500"
                 />
               </div>
 
@@ -451,8 +451,8 @@ export function AdminCategories() {
                 <button
                   type="button"
                   onClick={() => setForm((prev) => ({ ...prev, is_active: !prev.is_active }))}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-miyuki-500 focus:ring-offset-2 ${
-                    form.is_active ? "bg-miyuki-600" : "bg-gray-300"
+                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-oro-500 focus:ring-offset-2 ${
+                    form.is_active ? "bg-oro-600" : "bg-gray-300"
                   }`}
                   role="switch"
                   aria-checked={form.is_active}
@@ -482,7 +482,7 @@ export function AdminCategories() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-4 py-2.5 text-sm font-medium text-white bg-miyuki-600 rounded-lg hover:bg-miyuki-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-2.5 text-sm font-medium text-white bg-oro-600 rounded-lg hover:bg-oro-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {saving
                     ? "Guardando..."

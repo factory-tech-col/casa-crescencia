@@ -4,7 +4,7 @@ import type { Order, OrderStatus } from "@/types";
 import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { useAuth } from "@/features/auth/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import { formatPrice, formatDate } from "@/utils/format";
+import { formatPrice, formatDate, orderTotal } from "@/utils/format";
 import { SEO } from "@/components/seo/SEO";
 
 const STATUS_LABELS: Record<OrderStatus, string> = {
@@ -46,6 +46,7 @@ const PAYMENT_METHOD_LABELS: Record<string, string> = {
   MOCK: "Pago simulado",
   PSE: "PSE",
   NEQUI: "Nequi",
+  DAVIPLATA: "Daviplata",
   BRE_B: "BRE-B",
   BANK_TRANSFER: "Transferencia",
 };
@@ -68,6 +69,7 @@ type PaymentRow = {
   status: string;
   amount: number;
   reference: string | null;
+  receipt_path: string | null;
   created_at: string;
 };
 
@@ -95,6 +97,8 @@ function OrderDetailContent() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const [configured] = useState(isSupabaseConfigured());
+  const [receiptUrl, setReceiptUrl] = useState<string | null>(null);
+  const [receiptError, setReceiptError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!configured || !supabase || !user || !id) {
@@ -118,11 +122,32 @@ function OrderDetailContent() {
       });
   }, [configured, user, id]);
 
+  useEffect(() => {
+    const payment = order?.payment as unknown as PaymentRow | undefined;
+    if (!order || !payment?.receipt_path) return;
+    let cancelled = false;
+    supabase?.storage
+      .from("payment-receipts")
+      .createSignedUrl(payment.receipt_path, 60 * 5)
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error || !data?.signedUrl) {
+          setReceiptError("No se pudo cargar el comprobante.");
+          return;
+        }
+        setReceiptUrl(data.signedUrl);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [order]);
+
+
   if (loading) {
     return (
       <div className="container-custom py-8 max-w-3xl">
         <div className="flex items-center justify-center py-20">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-miyuki-600" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-oro-600" />
         </div>
       </div>
     );
@@ -132,7 +157,7 @@ function OrderDetailContent() {
     return (
       <div className="container-custom py-8 max-w-3xl">
         <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
-          <Link to="/pedidos" className="hover:text-miyuki-600">Mis Pedidos</Link>
+          <Link to="/pedidos" className="hover:text-oro-600">Mis Pedidos</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-900">Detalle</span>
         </nav>
@@ -153,7 +178,7 @@ function OrderDetailContent() {
     return (
       <div className="container-custom py-8 max-w-3xl">
         <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
-          <Link to="/pedidos" className="hover:text-miyuki-600">Mis Pedidos</Link>
+          <Link to="/pedidos" className="hover:text-oro-600">Mis Pedidos</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-900">Detalle</span>
         </nav>
@@ -179,7 +204,7 @@ function OrderDetailContent() {
   return (
     <div className="container-custom py-8 max-w-3xl">
       <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
-        <Link to="/pedidos" className="hover:text-miyuki-600">Mis Pedidos</Link>
+        <Link to="/pedidos" className="hover:text-oro-600">Mis Pedidos</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-900">Pedido #{order.id.slice(0, 8)}</span>
       </nav>
@@ -207,9 +232,9 @@ function OrderDetailContent() {
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium border-2 transition-colors ${
                     isCurrent
-                      ? "bg-miyuki-600 text-white border-miyuki-600"
+                      ? "bg-oro-600 text-white border-oro-600"
                       : isCompleted
-                        ? "bg-miyuki-100 text-miyuki-700 border-miyuki-500"
+                        ? "bg-oro-100 text-oro-700 border-oro-500"
                         : "bg-gray-50 text-gray-400 border-gray-200"
                   }`}
                 >
@@ -221,11 +246,11 @@ function OrderDetailContent() {
                     idx + 1
                   )}
                 </div>
-                <span className={`text-xs mt-2 text-center ${isCurrent ? "text-miyuki-700 font-medium" : "text-gray-400"}`}>
+                <span className={`text-xs mt-2 text-center ${isCurrent ? "text-oro-700 font-medium" : "text-gray-400"}`}>
                   {step.label}
                 </span>
                 {idx < TIMELINE_STEPS.length - 1 && (
-                  <div className={`absolute h-0.5 w-full ${isCompleted && idx < timelineIdx ? "bg-miyuki-500" : "bg-gray-200"}`} />
+                  <div className={`absolute h-0.5 w-full ${isCompleted && idx < timelineIdx ? "bg-oro-500" : "bg-gray-200"}`} />
                 )}
               </div>
             );
@@ -287,7 +312,7 @@ function OrderDetailContent() {
           </div>
           <div className="flex justify-between text-base font-semibold border-t border-gray-200 pt-3">
             <span className="text-gray-900">Total</span>
-            <span className="text-gray-900">{formatPrice(order.total)}</span>
+            <span className="text-gray-900">{formatPrice(orderTotal(order))}</span>
           </div>
         </div>
       </div>
@@ -307,13 +332,26 @@ function OrderDetailContent() {
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Monto</span>
-              <span className="text-gray-900">{formatPrice(payment.amount)}</span>
+              <span className="text-gray-900">{formatPrice(orderTotal(order))}</span>
             </div>
             {payment.reference && (
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Referencia</span>
                 <span className="text-gray-900 font-mono text-xs">{payment.reference}</span>
               </div>
+            )}
+            {receiptUrl && (
+              <div className="mt-4">
+                <span className="block text-sm text-gray-600 mb-2">Comprobante de pago</span>
+                <img
+                  src={receiptUrl}
+                  alt="Comprobante de pago"
+                  className="max-h-64 rounded-lg border border-gray-200 object-cover"
+                />
+              </div>
+            )}
+            {receiptError && (
+              <p className="mt-4 text-sm text-red-600">{receiptError}</p>
             )}
           </div>
         </div>

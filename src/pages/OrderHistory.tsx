@@ -4,7 +4,7 @@ import type { Order } from "@/types";
 import { ProtectedRoute } from "@/features/auth/ProtectedRoute";
 import { useAuth } from "@/features/auth/AuthProvider";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import { formatPrice, formatDate } from "@/utils/format";
+import { formatPrice, formatDate, orderTotal } from "@/utils/format";
 import { SEO } from "@/components/seo/SEO";
 
 const STATUS_LABELS: Record<string, string> = {
@@ -33,7 +33,19 @@ const STATUS_COLORS: Record<string, string> = {
   REFUNDED: "bg-orange-50 text-orange-700 border-orange-200",
 };
 
-type OrderWithItems = Order & { items?: Array<Record<string, unknown>> };
+const PAYMENT_METHOD_LABELS: Record<string, string> = {
+  NEQUI: "Nequi",
+  DAVIPLATA: "Daviplata",
+  MOCK: "Simulado",
+  PSE: "PSE",
+  BRE_B: "Bre-B",
+  BANK_TRANSFER: "Transferencia",
+};
+
+type OrderWithItems = Order & {
+  items?: Array<Record<string, unknown>>;
+  payment?: { method: string } | null;
+};
 
 function OrderHistoryContent() {
   const { user } = useAuth();
@@ -49,7 +61,7 @@ function OrderHistoryContent() {
 
     supabase
       .from("orders")
-      .select("*, items:order_items(*)")
+      .select("*, items:order_items(*), payment:payments(method)")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
@@ -65,7 +77,7 @@ function OrderHistoryContent() {
       <div className="container-custom py-8">
         <h1 className="text-3xl font-display font-bold text-gray-900 mb-8">Mis Pedidos</h1>
         <div className="flex items-center justify-center py-20">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-miyuki-600" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-oro-600" />
         </div>
       </div>
     );
@@ -114,7 +126,7 @@ function OrderHistoryContent() {
             <Link
               key={order.id}
               to={`/pedidos/${order.id}`}
-              className="block bg-white rounded-xl border border-gray-200 p-5 hover:border-miyuki-300 hover:shadow-sm transition-all"
+              className="block bg-white rounded-xl border border-gray-200 p-5 hover:border-oro-300 hover:shadow-sm transition-all"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div className="flex-1 min-w-0">
@@ -129,10 +141,13 @@ function OrderHistoryContent() {
                   <div className="flex items-center gap-4 text-sm text-gray-500">
                     <span>{formatDate(order.created_at)}</span>
                     <span>{order.items?.length ?? 0} {(order.items?.length ?? 0) === 1 ? "artículo" : "artículos"}</span>
+                    {order.payment?.method && (
+                      <span>{PAYMENT_METHOD_LABELS[order.payment.method] ?? order.payment.method}</span>
+                    )}
                   </div>
                 </div>
                 <div className="text-right sm:ml-4">
-                  <span className="text-lg font-semibold text-gray-900">{formatPrice(order.total)}</span>
+                  <span className="text-lg font-semibold text-gray-900">{formatPrice(orderTotal(order))}</span>
                 </div>
               </div>
             </Link>
@@ -146,7 +161,7 @@ function OrderHistoryContent() {
 export default function OrderHistory() {
   return (
     <ProtectedRoute>
-      <SEO title="Mis Pedidos" description="Historial de pedidos en MIYUKI" />
+      <SEO title="Mis Pedidos" description="Historial de pedidos en Casa Crescencia" />
       <OrderHistoryContent />
     </ProtectedRoute>
   );

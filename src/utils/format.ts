@@ -11,6 +11,19 @@ export function formatPrice(amount: number, currency: string = "COP"): string {
   return `${CURRENCY_SYMBOL}${amount.toLocaleString()}`;
 }
 
+/**
+ * Customer-facing total for an order. The DB `total` column historically
+ * includes IVA (subtotal + iva + shipping), but customers actually pay
+ * `subtotal + shipping_cost` (no IVA). This returns the exact amount charged
+ * to the customer so the UI matches what was paid (e.g. $48.900 COP).
+ */
+export function orderTotal(order: {
+  subtotal?: number | null;
+  shipping_cost?: number | null;
+}): number {
+  return (Number(order.subtotal ?? 0) || 0) + (Number(order.shipping_cost ?? 0) || 0);
+}
+
 export function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("es-CO", {
     year: "numeric",
