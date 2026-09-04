@@ -9,7 +9,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/Miyuki/",
+
+  base: "/casa-crescencia/",
+
   build: {
     outDir: "dist",
     sourcemap: false,
@@ -22,6 +24,7 @@ export default defineConfig({
       },
     },
   },
+
   test: {
     globals: true,
     environment: "jsdom",
